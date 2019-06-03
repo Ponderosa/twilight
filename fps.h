@@ -5,9 +5,19 @@
 #ifndef TWILIGHT_FPS_H
 #define TWILIGHT_FPS_H
 
+#include "beam.h"
+#include "blend2d.h"
 
-class fps {
-
+class FPS: public Beam {
+private:
+    BLFontFace face;
+    BLFont font;
+    double *fps;
+public:
+    FPS(double*);
+    void OnFrame() override;
+    void OnRender(BLContext *ctx) override;
+    //void SetFPS(double*);
 };
 
 

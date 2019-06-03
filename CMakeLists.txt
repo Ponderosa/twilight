@@ -19,7 +19,7 @@ find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
 # Your application target.
-add_executable(twilight main.cc beam.cc beam.h)
+add_executable(twilight main.cc beam.cc beam.h tunnel.cc tunnel.h sdl_application.cc sdl_application.h fps.cc fps.h)
 
 # Add Blend2D dependency to your application. The dependency
 # should provide everything needed - include paths, libraries,
