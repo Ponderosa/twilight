@@ -18,11 +18,16 @@ include("${BLEND2D_DIR}/CMakeLists.txt")
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 
+# RtMidi
+#find_package(RtMidi REQUIRED)
+find_library (RTMIDI rtmidi)
+
 # Your application target.
-add_executable(twilight main.cc beam.cc beam.h tunnel.cc tunnel.h sdl_application.cc sdl_application.h fps.cc fps.h)
+add_executable(twilight main.cc beams/beam.cc beams/beam.h beams/tunnel.cc beams/tunnel.h graphics/sdl_application.cc graphics/sdl_application.h beams/fps.cc beams/fps.h dispatch.cc dispatch.h midi/midi.cc midi/midi.h)
 
 # Add Blend2D dependency to your application. The dependency
 # should provide everything needed - include paths, libraries,
 # compiler flags, and compiler definitions.
 target_link_libraries(twilight Blend2D::Blend2D)
 target_link_libraries(twilight ${SDL2_LIBRARIES})
+target_link_libraries(twilight ${RTMIDI})

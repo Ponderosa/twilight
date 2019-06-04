@@ -99,6 +99,8 @@ int SDLApplication::Run() {
     return exitCode;
 }
 
+
+
 void SDLApplication::OnFrame() {
     for(int i = 0; i < cnt_beams; ++i) {
         beams[i]->OnFrame();

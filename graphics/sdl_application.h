@@ -7,7 +7,7 @@
 
 #include <blend2d.h>
 #include <SDL.h>
-#include "beam.h"
+#include "../beams/beam.h"
 
 class SDLApplication {
 public:

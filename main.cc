@@ -1,15 +1,19 @@
 #include <blend2d.h>
 #include <SDL.h>
 #include <math.h>
-#include "sdl_application.h"
-#include "fps.h"
-#include "tunnel.h"
+#include "graphics/sdl_application.h"
+#include "beams/fps.h"
+#include "beams/tunnel.h"
+#include "midi/midi.h"
 
 #define ARRAY_SIZE(X) uint32_t(sizeof(X) / sizeof(X[0]))
 #define WIDTH 1024
 #define HEIGHT 1024
 
 int main(int argc, char *argv[]) {
+    // Midi Setup
+    Midi Midi;
+
     SDLApplication sdl;
     Tunnel tunnel(WIDTH,HEIGHT);
     FPS fps(&sdl.fps);
