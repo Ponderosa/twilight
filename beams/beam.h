@@ -9,7 +9,7 @@
 
 class Beam {
 public:
-    virtual void OnFrame() = 0;
+    virtual void OnFrame(uint32_t tick) = 0;
     virtual void OnRender(BLContext *ctx) = 0;
 };
 

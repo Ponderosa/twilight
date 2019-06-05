@@ -10,10 +10,10 @@ class Subject;
 class Observer {
 public:
     Observer(Subject *mod, int div);
-    virtual void update() = 0;
+    virtual void Update() = 0;
 protected:
-    Subject *getSubject();
-    int getDivisor();
+    Subject *GetSubject();
+    int GetDivisor();
 private:
     Subject *model;
     int denom;

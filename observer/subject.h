@@ -11,13 +11,13 @@ class Observer;
 
 class Subject {
 public:
-    void attach(Observer *obs);
-    void setVal(int val);
-    int getVal();
-    void notify();
+    void Attach(Observer *obs);
+    void SetVal(double val);
+    double GetVal();
+    void Notify();
 protected:
     std::vector<Observer*> views;
-    int value;
+    double value;
 };
 
 

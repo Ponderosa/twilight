@@ -13,23 +13,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df8b80b8-724e-4ca9-b813-2c4373984bb8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/midi/midi_apc_40.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/midi/midi_apc_40.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/midi/midi_manager.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/observer/dispatch.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/observer/observer.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/observer/observer.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/observer/subject.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/observer/subject.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/system.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/twilight.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispatch.cc" beforeDir="false" afterPath="$PROJECT_DIR$/midi/midi_manager.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dispatch.h" beforeDir="false" afterPath="$PROJECT_DIR$/observer/dispatch.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beams/beam.h" beforeDir="false" afterPath="$PROJECT_DIR$/beams/beam.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beams/fps.cc" beforeDir="false" afterPath="$PROJECT_DIR$/beams/fps.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beams/fps.h" beforeDir="false" afterPath="$PROJECT_DIR$/beams/fps.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beams/tunnel.cc" beforeDir="false" afterPath="$PROJECT_DIR$/beams/tunnel.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/beams/tunnel.h" beforeDir="false" afterPath="$PROJECT_DIR$/beams/tunnel.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphics/sdl_application.cc" beforeDir="false" afterPath="$PROJECT_DIR$/graphics/sdl_application.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cc" beforeDir="false" afterPath="$PROJECT_DIR$/main.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/midi/midi.cc" beforeDir="false" afterPath="$PROJECT_DIR$/midi/midi_device.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/midi/midi.h" beforeDir="false" afterPath="$PROJECT_DIR$/midi/midi_device.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/observer/dispatch.cc" beforeDir="false" afterPath="$PROJECT_DIR$/observer/dispatch.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/observer/dispatch.h" beforeDir="false" afterPath="$PROJECT_DIR$/observer/dispatch.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/observer/observer.cc" beforeDir="false" afterPath="$PROJECT_DIR$/observer/observer.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/observer/observer.h" beforeDir="false" afterPath="$PROJECT_DIR$/observer/observer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/observer/subject.cc" beforeDir="false" afterPath="$PROJECT_DIR$/observer/subject.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/observer/subject.h" beforeDir="false" afterPath="$PROJECT_DIR$/observer/subject.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system.cc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/system.h" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,30 +46,32 @@
         <counts>
           <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cc" value="4079" />
-          <entry key="h" value="3151" />
+          <entry key="cc" value="5891" />
+          <entry key="h" value="3504" />
           <entry key="mm" value="1" />
-          <entry key="txt" value="311" />
+          <entry key="txt" value="312" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CMakeLists.txt" value="311" />
-          <entry key="ObjectiveC" value="7231" />
+          <entry key="CMakeLists.txt" value="312" />
+          <entry key="ObjectiveC" value="9396" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cc" value="19" />
+          <entry key="Makefile" value="1" />
+          <entry key="cc" value="27" />
           <entry key="cmake" value="1" />
           <entry key="cpp" value="1" />
-          <entry key="h" value="26" />
+          <entry key="h" value="38" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
@@ -76,73 +79,107 @@
         <counts>
           <entry key="CMakeCache.txt" value="1" />
           <entry key="CMakeLists.txt" value="3" />
-          <entry key="ObjectiveC" value="46" />
+          <entry key="ObjectiveC" value="66" />
+          <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.47839928">
+    <splitter split-orientation="horizontal" split-proportion="0.50136614">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/observer/dispatch.cc">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/midi/midi_device.cc">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="500">
-                  <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/midi/midi_apc_40.cc">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="631">
-                  <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/midi/midi_apc_40.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+                <state relative-caret-position="220">
+                  <caret line="26" selection-start-line="26" selection-end-line="30" selection-end-column="61" />
                   <folding>
-                    <element signature="e#95#112#0" expanded="true" />
+                    <element signature="e#125#142#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/midi/midi_manager.cc">
+            <entry file="file://$PROJECT_DIR$/graphics/sdl_application.cc">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1560">
-                  <caret line="78" selection-start-line="78" selection-end-line="78" />
+                <state relative-caret-position="440">
+                  <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
                   <folding>
-                    <element signature="e#42#67#0" expanded="true" />
+                    <element signature="e#42#70#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/midi/midi_manager.h">
+            <entry file="file://$PROJECT_DIR$/beams/beam.cc">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="21" selection-start-line="21" selection-end-line="21" />
+                <state>
+                  <caret column="2" selection-start-column="2" selection-end-column="2" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/beams/beam.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="300">
+                  <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/beams/fps.cc">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="300">
+                  <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="31" />
                   <folding>
-                    <element signature="e#107#124#0" expanded="true" />
+                    <element signature="e#42#58#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/beams/fps.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="320">
+                  <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/graphics/sdl_application.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="780">
+                  <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/main.cc">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="211">
+                  <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+                  <folding>
+                    <element signature="e#0#20#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/beams/tunnel.cc">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="920">
+                  <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+                  <folding>
+                    <element signature="e#42#59#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -151,101 +188,15 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/main.cc">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="560">
-                  <caret line="28" selection-start-line="28" selection-end-line="28" />
-                  <folding>
-                    <element signature="e#0#20#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/midi/midi_device.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="320">
-                  <caret line="16" column="15" selection-start-line="16" selection-end-line="17" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/observer/dispatch.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="400">
-                  <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-                  <folding>
-                    <element signature="e#99#114#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
+        <leaf>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+            <entry file="file://$PROJECT_DIR$/beams/tunnel.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="500">
-                  <caret line="25" column="409" selection-start-line="25" selection-start-column="409" selection-end-line="25" selection-end-column="409" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/system.cc">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/system.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="160">
-                  <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/observer/observer.cc">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="100">
-                  <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+                <state relative-caret-position="480">
+                  <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
                   <folding>
-                    <element signature="e#42#63#0" expanded="true" />
+                    <element signature="e#95#110#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/observer/observer.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="140">
-                  <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/observer/subject.cc">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="100">
-                  <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-                  <folding>
-                    <element signature="e#42#62#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/observer/subject.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="180">
-                  <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
                 </state>
               </provider>
             </entry>
@@ -260,7 +211,13 @@
       <find>font</find>
       <find>fps</find>
       <find>ttf</find>
+      <find>system</find>
+      <find>map</find>
+      <find>onfr</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -278,7 +235,6 @@
         <option value="$PROJECT_DIR$/dispatch.h" />
         <option value="$PROJECT_DIR$/midi.h" />
         <option value="$PROJECT_DIR$/midi.cc" />
-        <option value="$PROJECT_DIR$/main.cc" />
         <option value="$PROJECT_DIR$/sdl_application.cc" />
         <option value="$PROJECT_DIR$/midi/apc_40.h" />
         <option value="$PROJECT_DIR$/midi/midi.h" />
@@ -292,15 +248,23 @@
         <option value="$PROJECT_DIR$/midi/midi_device.h" />
         <option value="$PROJECT_DIR$/midi/midi_device.cc" />
         <option value="$PROJECT_DIR$/dispatch.cc" />
+        <option value="$PROJECT_DIR$/observer/observer.cc" />
+        <option value="$PROJECT_DIR$/system.h" />
+        <option value="$PROJECT_DIR$/system/test.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/observer/subject.h" />
         <option value="$PROJECT_DIR$/observer/subject.cc" />
-        <option value="$PROJECT_DIR$/observer/observer.cc" />
         <option value="$PROJECT_DIR$/observer/observer.h" />
-        <option value="$PROJECT_DIR$/observer/dispatch.h" />
         <option value="$PROJECT_DIR$/twilight.h" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/system.h" />
+        <option value="$PROJECT_DIR$/observer/dispatch.h" />
         <option value="$PROJECT_DIR$/observer/dispatch.cc" />
+        <option value="$PROJECT_DIR$/beams/beam.h" />
+        <option value="$PROJECT_DIR$/beams/fps.cc" />
+        <option value="$PROJECT_DIR$/beams/fps.h" />
+        <option value="$PROJECT_DIR$/main.cc" />
+        <option value="$PROJECT_DIR$/graphics/sdl_application.cc" />
+        <option value="$PROJECT_DIR$/beams/tunnel.h" />
+        <option value="$PROJECT_DIR$/beams/tunnel.cc" />
       </list>
     </option>
   </component>
@@ -338,18 +302,6 @@
               <item name="twilight" type="b2602c69:ProjectViewProjectNode" />
               <item name="twilight" type="47feb1d3:ProjectViewModuleNode" />
               <item name="twilight" type="462c0819:PsiDirectoryNode" />
-              <item name="beams" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twilight" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twilight" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="twilight" type="462c0819:PsiDirectoryNode" />
-              <item name="midi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="twilight" type="b2602c69:ProjectViewProjectNode" />
-              <item name="twilight" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="twilight" type="462c0819:PsiDirectoryNode" />
               <item name="observer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -375,11 +327,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/system" />
       <recent name="$PROJECT_DIR$/observer" />
       <recent name="$PROJECT_DIR$/beams" />
       <recent name="$PROJECT_DIR$/graphics" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/midi" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -429,11 +381,12 @@
       <workItem from="1559586806229" duration="22140000" />
       <workItem from="1559668527598" duration="8770000" />
       <workItem from="1559738326014" duration="15104000" />
+      <workItem from="1559765341208" duration="10320000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46014000" />
+    <option name="totallyTimeSpent" value="56334000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -447,18 +400,18 @@
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="2562" height="1406" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12180511" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12300319" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="CMake" order="0" sideWeight="0.49800318" weight="0.32976973" />
+      <window_info anchor="bottom" id="CMake" order="0" sideWeight="0.49760383" weight="0.32921812" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" />
-      <window_info active="true" anchor="bottom" id="Messages" order="3" sideWeight="0.49480832" visible="true" weight="0.32839507" />
+      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.46445686" weight="0.32839507" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.49960065" weight="0.32976973" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5051917" side_tool="true" visible="true" weight="0.32839507" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5315495" side_tool="true" visible="true" weight="0.33004114" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.32976973" />
-      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.49840257" weight="0.33004114" />
+      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.4684505" visible="true" weight="0.33004114" />
       <window_info anchor="bottom" id="Debug" order="9" sideWeight="0.49960065" weight="0.39967105" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -534,119 +487,18 @@
         <state relative-caret-position="-300" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/beams/fps.cc">
+    <entry file="file://$PROJECT_DIR$/twilight_global.h" />
+    <entry file="file://$PROJECT_DIR$/midi/midi_device.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
-          <folding>
-            <element signature="e#42#58#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="500">
+          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/beams/fps.h">
+    <entry file="file://$PROJECT_DIR$/midi/midi_apc_40.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphics/sdl_application.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphics/sdl_application.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="101" selection-start-line="101" selection-end-line="101" />
-          <folding>
-            <element signature="e#42#70#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beams/beam.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beams/beam.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beams/tunnel.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="e#42#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beams/tunnel.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/midi/midi_device.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="15" selection-start-line="16" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/observer/subject.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="15" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/observer/observer.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding>
-            <element signature="e#42#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/observer/subject.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding>
-            <element signature="e#42#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/observer/observer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+        <state relative-caret-position="720">
+          <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -660,12 +512,97 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/midi/midi_device.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="15" selection-start-line="16" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/system.cc">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/midi/midi_manager.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
+        <state relative-caret-position="711">
           <caret line="78" selection-start-line="78" selection-end-line="78" />
           <folding>
             <element signature="e#42#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/system.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/test.cc">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/test.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="25" column="409" selection-start-line="25" selection-start-column="409" selection-end-line="25" selection-end-column="409" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="4170" column="33" selection-start-line="4170" selection-start-column="27" selection-end-line="4170" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/observer/observer.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding>
+            <element signature="e#42#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/observer/subject.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/observer/observer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/observer/dispatch.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#99#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twilight.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="28" />
+          <folding>
+            <element signature="e#99#114#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -680,58 +617,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/midi/midi_apc_40.cc">
+    <entry file="file://$PROJECT_DIR$/observer/subject.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/midi/midi_device.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/observer/dispatch.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+        <state relative-caret-position="140">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
           <folding>
-            <element signature="e#99#114#0" expanded="true" />
+            <element signature="e#42#62#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/twilight_global.h">
+    <entry file="file://$PROJECT_DIR$/observer/dispatch.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="26" selection-start-line="26" selection-end-line="30" selection-end-column="61" />
+          <folding>
+            <element signature="e#125#142#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphics/sdl_application.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beams/beam.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beams/fps.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="31" />
+          <folding>
+            <element signature="e#42#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beams/fps.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphics/sdl_application.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+          <folding>
+            <element signature="e#42#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beams/beam.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="2" selection-start-column="2" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/system.cc">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system.h">
+    <entry file="file://$PROJECT_DIR$/beams/tunnel.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+        <state relative-caret-position="480">
+          <caret line="24" column="21" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+          <folding>
+            <element signature="e#95#110#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/observer/dispatch.cc">
+    <entry file="file://$PROJECT_DIR$/beams/tunnel.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="409" selection-start-line="25" selection-start-column="409" selection-end-line="25" selection-end-column="409" />
+        <state relative-caret-position="920">
+          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+          <folding>
+            <element signature="e#42#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

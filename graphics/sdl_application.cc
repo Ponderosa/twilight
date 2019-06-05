@@ -20,7 +20,11 @@ bool SDLApplication::CreateWindow(int w, int h) {
     if (!window)
         return false;
 
+    SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    //renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+
     if (!renderer) {
         printf("FAILED to create SDL_Renderer: %s\n", SDL_GetError());
         DestroyWindow();
@@ -53,6 +57,12 @@ void SDLApplication::DestroyWindow() {
 void SDLApplication::OnEvent(SDL_Event &event) {
     if (event.type == SDL_QUIT) {
         quitting = true;
+    }
+
+    if (event.type == SDL_KEYDOWN) {
+        if (event.key.keysym.sym == SDLK_ESCAPE) {
+            quitting = true;
+        }
     }
 }
 
@@ -103,7 +113,7 @@ int SDLApplication::Run() {
 
 void SDLApplication::OnFrame() {
     for(int i = 0; i < cnt_beams; ++i) {
-        beams[i]->OnFrame();
+        beams[i]->OnFrame(SDL_GetTicks());
     }
 }
 

@@ -15,7 +15,7 @@ private:
     double *fps;
 public:
     FPS(double*);
-    void OnFrame() override;
+    void OnFrame(uint32_t tick) override;
     void OnRender(BLContext *ctx) override;
     //void SetFPS(double*);
 };

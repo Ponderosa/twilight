@@ -8,13 +8,13 @@
 Observer::Observer(Subject *mod, int div) {
     model = mod;
     denom = div;
-    model->attach(this);
+    model->Attach(this);
 }
 
-Subject* Observer::Observer::getSubject() {
+Subject* Observer::Observer::GetSubject() {
     return model;
 }
 
-int Observer::Observer::getDivisor() {
+int Observer::Observer::GetDivisor() {
     return denom;
 }

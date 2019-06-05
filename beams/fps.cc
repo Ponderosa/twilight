@@ -13,7 +13,7 @@ FPS::FPS(double *fps) {
     this->fps = fps;
 }
 
-void FPS::OnFrame() {
+void FPS::OnFrame(uint32_t tick) {
 }
 
 void FPS::OnRender(BLContext *ctx) {

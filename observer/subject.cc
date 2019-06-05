@@ -5,20 +5,20 @@
 #include "subject.h"
 #include "observer.h"
 
-void Subject::attach(Observer *obs) {
+void Subject::Attach(Observer *obs) {
     views.push_back(obs);
 }
 
-void Subject::setVal(int val) {
+void Subject::SetVal(double val) {
     value = val;
-    notify();
+    Notify();
 }
 
-int Subject::getVal() {
+double Subject::GetVal() {
     return value;
 }
 
-void Subject::notify() {
+void Subject::Notify() {
     for (int i = 0; i < views.size(); i++)
-        views[i]->update();
+        views[i]->Update();
 }
