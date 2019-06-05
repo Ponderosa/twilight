@@ -23,7 +23,7 @@ include_directories(${SDL2_INCLUDE_DIRS})
 find_library (RTMIDI rtmidi)
 
 # Your application target.
-add_executable(twilight main.cc beams/beam.cc beams/beam.h beams/tunnel.cc beams/tunnel.h graphics/sdl_application.cc graphics/sdl_application.h beams/fps.cc beams/fps.h dispatch.cc dispatch.h midi/midi.cc midi/midi.h)
+add_executable(twilight main.cc beams/beam.cc beams/beam.h beams/tunnel.cc beams/tunnel.h graphics/sdl_application.cc graphics/sdl_application.h beams/fps.cc beams/fps.h observer/dispatch.cc observer/dispatch.h midi/midi_device.cc midi/midi_device.h midi/midi_apc_40.cc midi/midi_apc_40.h midi/midi_manager.cc midi/midi_manager.h observer/observer.cc observer/observer.h observer/subject.cc observer/subject.h system.cc system.h)
 
 # Add Blend2D dependency to your application. The dependency
 # should provide everything needed - include paths, libraries,

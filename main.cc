@@ -4,7 +4,7 @@
 #include "graphics/sdl_application.h"
 #include "beams/fps.h"
 #include "beams/tunnel.h"
-#include "midi/midi.h"
+#include "midi/midi_device.h"
 
 #define ARRAY_SIZE(X) uint32_t(sizeof(X) / sizeof(X[0]))
 #define WIDTH 1024
@@ -12,7 +12,7 @@
 
 int main(int argc, char *argv[]) {
     // Midi Setup
-    Midi Midi;
+    MidiDevice Midi;
 
     SDLApplication sdl;
     Tunnel tunnel(WIDTH,HEIGHT);
