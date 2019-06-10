@@ -15,6 +15,7 @@ Tunnel::Tunnel(int width, int height, int channel, Dispatch* dispatch) {
     radius = new Observer(dispatch->GetSubject("size_1_ch" + std::to_string(channel)), 60);
     thickness = new Observer(dispatch->GetSubject("size_2_ch" + std::to_string(channel)), 10);
     ellipse = new Observer(dispatch->GetSubject("size_3_ch" + std::to_string(channel)), 1);
+    intensity = new Observer(dispatch->GetSubject("intensity_ch" + std::to_string(channel)), 127);
 
     x_origin = 0.0;
     y_origin = 0.0;
@@ -53,12 +54,13 @@ void Tunnel::OnFrame(uint32_t tick) {
 
 void Tunnel::OnRender(BLContext *ctx) {
     BLRgba32 *color = new BLRgba32(0xFF1F7FFF);
-    color->a = 0xFF;
+    color->a = (char)(intensity->GetValue() * 2);
 
 
     // Stroke
     ctx->setCompOp(BL_COMP_OP_SRC_OVER);
-    ctx->setStrokeStyle(BLRgba32(0xFF1F7FFF));
+    //ctx->setStrokeStyle(BLRgba32(0xFF1F7FFF));
+    ctx->setStrokeStyle(*color);
     ctx->setStrokeWidth(thickness->GetValue() * 10);
     ctx->setStrokeStartCap(BL_STROKE_CAP_BUTT);
     ctx->setStrokeEndCap(BL_STROKE_CAP_BUTT);

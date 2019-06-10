@@ -26,6 +26,10 @@ int main(int argc, char *argv[]) {
     Tunnel tunnel2(WIDTH,HEIGHT,2,&dispatch);
     Tunnel tunnel3(WIDTH,HEIGHT,3,&dispatch);
     Tunnel tunnel4(WIDTH,HEIGHT,4,&dispatch);
+    Tunnel tunnel5(WIDTH,HEIGHT,5,&dispatch);
+    Tunnel tunnel6(WIDTH,HEIGHT,6,&dispatch);
+    Tunnel tunnel7(WIDTH,HEIGHT,7,&dispatch);
+    Tunnel tunnel8(WIDTH,HEIGHT,8,&dispatch);
     FPS fps(&sdl.fps);
 
     // Make window
@@ -36,6 +40,10 @@ int main(int argc, char *argv[]) {
     sdl.AddBeam(&tunnel2);
     sdl.AddBeam(&tunnel3);
     sdl.AddBeam(&tunnel4);
+    sdl.AddBeam(&tunnel5);
+    sdl.AddBeam(&tunnel6);
+    sdl.AddBeam(&tunnel7);
+    //sdl.AddBeam(&tunnel8);
     sdl.AddBeam(&fps);
 
     return sdl.Run();

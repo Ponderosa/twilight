@@ -47,7 +47,7 @@ void Dispatch::CreateSubjects(std::list<std::string> sub_list, int num_channels)
             sub->SetVal(0.0);
             subject_map[subject_name] = sub;
         } else {
-            for (int i = 0; i < num_channels; ++i) {
+            for (int i = 1; i <= num_channels; ++i) {
                 subject_name_full = subject_name + "_ch" + std::to_string(i);
                 sub = new Subject;
                 sub->SetVal(0.0);
@@ -56,3 +56,4 @@ void Dispatch::CreateSubjects(std::list<std::string> sub_list, int num_channels)
         }
     }
 }
+

@@ -19,6 +19,7 @@ private:
     int width;
     int height;
 
+    Observer* intensity;
     Observer* num_segment;
     Observer* blanking;
     Observer* radius;

@@ -7,6 +7,7 @@
 
 #include <vector>
 #include "midi_device.h"
+#include "observer/dispatch.h"
 
 
 class MidiAPC40: public MidiDevice {
@@ -16,6 +17,7 @@ public:
     void UpdateLed(unsigned char controlID, unsigned char channel, unsigned char state);
     void UpdateClipLaunch(unsigned char row, unsigned char column, unsigned char state);
     static void HandleMidi(double deltatime, std::vector< unsigned char > *message, void *userData );
+    static void HandleMidiChannel(std::vector< unsigned char > *message, Dispatch *dispatch, int channel);
 };
 
 typedef void (MidiAPC40::*HandleMidi)(double, std::vector<unsigned char>*, void*) const;

@@ -2,6 +2,7 @@
 // Created by ponderosa on 6/4/19.
 //
 
+#include <string>
 #include "midi_apc_40.h"
 #include "observer/dispatch.h"
 
@@ -69,35 +70,75 @@ void MidiAPC40::HandleMidi(double deltatime, std::vector< unsigned char > *messa
         {
             /* Channel 1 */
             case 176:
-                switch ((int)message->at(1))
-                {
-                    /* Count 1 */
-                    case 16:
-                        dispatch->SetSubject("count_1_ch1", (double) message->at(2));
-                        break;
-                    /* Count 1 */
-                    case 17:
-                        dispatch->SetSubject("count_2_ch1", (double) message->at(2));
-                        break;
-                    /* Count 1 */
-                    case 20:
-                        dispatch->SetSubject("size_1_ch1", (double) message->at(2));
-                        break;
-                    /* Count 1 */
-                    case 21:
-                        dispatch->SetSubject("size_2_ch1", (double) message->at(2));
-                        break;
-                    /* Count 1 */
-                    case 22:
-                        dispatch->SetSubject("size_3_ch1", (double) message->at(2));
-                        break;
-                }
+                HandleMidiChannel(message, dispatch, 1);
                 break;
             /* Channel 2 */
             case 177:
+                HandleMidiChannel(message, dispatch, 2);
+                break;
+            /* Channel 3 */
+            case 178:
+                HandleMidiChannel(message, dispatch, 3);
+                break;
+            /* Channel 4 */
+            case 179:
+                HandleMidiChannel(message, dispatch, 4);
+                break;
+            /* Channel 5 */
+            case 180:
+                HandleMidiChannel(message, dispatch, 5);
+                break;
+            /* Channel 6 */
+            case 181:
+                HandleMidiChannel(message, dispatch, 6);
+                break;
+            /* Channel 7 */
+            case 182:
+                HandleMidiChannel(message, dispatch, 7);
+                break;
+            /* Channel 8 */
+            case 183:
+                HandleMidiChannel(message, dispatch, 8);
                 break;
             default:
                 std::cout << "Unknown midi message received!" << std::endl;
         }
     }
+}
+
+void MidiAPC40::HandleMidiChannel(std::vector< unsigned char > *message, Dispatch *dispatch, int channel) {
+    std::string subject;
+
+    switch ((int)message->at(1))
+    {
+        /* Count 1 */
+        case 7:
+            subject = "intensity_ch" + std::to_string(channel);
+            break;
+            /* Count 1 */
+        case 16:
+            subject = "count_1_ch" + std::to_string(channel);
+            break;
+            /* Count 1 */
+        case 17:
+            subject = "count_2_ch" + std::to_string(channel);
+            break;
+            /* Count 1 */
+        case 20:
+            subject = "size_1_ch" + std::to_string(channel);
+            break;
+            /* Count 1 */
+        case 21:
+            subject = "size_2_ch" + std::to_string(channel);
+            break;
+            /* Count 1 */
+        case 22:
+            subject = "size_3_ch" + std::to_string(channel);
+            break;
+        default:
+            std::cout << "Unknown midi message received!" << std::endl;
+            return;
+    }
+
+    dispatch->SetSubject(subject, (double) message->at(2));
 }

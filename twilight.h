@@ -14,6 +14,7 @@
 
 const int NUMBER_OF_CHANNELS = 8;
 
+
 const std::list<std::string> SUBJECT_MASTER =
         std::list<std::string>({"intensity", "mask", "bump", "mute"});
 
