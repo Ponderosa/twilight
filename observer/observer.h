@@ -9,14 +9,14 @@ class Subject;
 
 class Observer {
 public:
-    Observer(Subject *mod, int div);
-    virtual void Update() = 0;
+    Observer(Subject *mod, double value);
+    void Update();
+    double GetValue();
 protected:
     Subject *GetSubject();
-    int GetDivisor();
 private:
     Subject *model;
-    int denom;
+    double value;
 };
 
 

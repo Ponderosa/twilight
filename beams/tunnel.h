@@ -7,22 +7,28 @@
 
 #include <list>
 #include "beam.h"
+#include "parameter.h"
+#include "observer/dispatch.h"
 
 class Tunnel: public Beam {
 public:
-    Tunnel(int, int);
+    Tunnel(int, int, int, Dispatch*);
     void OnFrame(uint32_t tick) override;
     void OnRender(BLContext *ctx) override;
 private:
-    double x_origin;
-    double y_origin;
-    int num_segment;
     int width;
     int height;
-    int blanking;
+
+    Observer* num_segment;
+    Observer* blanking;
+    Observer* radius;
+    Observer* thickness;
+    Observer* ellipse;
+
+    double x_origin;
+    double y_origin;
     double originAngle;
-    double radius;
-    double thickness;
+
     uint32_t tick;
 
     std::list<BLArc> arcs;

@@ -2,12 +2,11 @@
 // Created by ponderosa on 6/3/19.
 //
 
-#include "sdl_application.h"
+
 #include <math.h>
 
-#define ARRAY_SIZE(X) uint32_t(sizeof(X) / sizeof(X[0]))
-#define WIDTH 1024
-#define HEIGHT 1024
+#include "twilight.h"
+#include "sdl_application.h"
 
 
 bool SDLApplication::CreateWindow(int w, int h) {
@@ -20,7 +19,9 @@ bool SDLApplication::CreateWindow(int w, int h) {
     if (!window)
         return false;
 
+#if SET_FULLSCREEN
     SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+#endif
 
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     //renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);

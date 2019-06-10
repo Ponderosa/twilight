@@ -18,6 +18,15 @@ Dispatch::Dispatch() {
     CreateSubjects(SUBJECT_VELOCITY, NUMBER_OF_CHANNELS);
 }
 
+Subject* Dispatch::GetSubject(std::string name) {
+    return subject_map.at(name);
+}
+
+void Dispatch::SetSubject(std::string name, double value) {
+    subject_map[name]->SetVal(value);
+}
+
+
 void Dispatch::CreateSubjects(std::list<std::string> sub_list, int num_channels) {
     // Create Subjects
     std::string subject_name;

@@ -7,13 +7,14 @@
 
 #include <map>
 #include "midi_device.h"
+#include "observer/dispatch.h"
 
 class MidiManager {
 public:
-    MidiManager();
+    MidiManager(Dispatch *dispatch);
 private:
     //bool CLISetup();
-    bool AutoSetup();
+    bool AutoSetup(Dispatch * dispatch);
     std::map<std::string, MidiDevice*> devices;
 };
 

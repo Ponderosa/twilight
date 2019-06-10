@@ -5,17 +5,39 @@
 #include "midi_manager.h"
 #include "RtMidi.h"
 #include "midi_apc_40.h"
+#include "observer/dispatch.h"
 
-MidiManager::MidiManager() {
-    if(!AutoSetup()) {
+// Create static void ptr to function
+//void *apc40_callback;
+
+// Wrapper function
+void apc40_callback(double deltatime, std::vector< unsigned char > *message, void *userData)
+{
+    Dispatch* dispatch = (Dispatch*) userData;
+
+    unsigned int nBytes = message->size();
+    for ( unsigned int i=0; i<nBytes; i++ )
+        std::cout << "Byte " << i << " = " << (int)message->at(i) << ", ";
+    if ( nBytes > 0 )
+        std::cout << "stamp = " << deltatime << std::endl;
+
+    if ( nBytes == 3) {
+        if( ((int)message->at(0) == 176) && ((int)message->at(1) == 16)) {
+            dispatch->SetSubject("count_1_ch1", (double)message->at(2));
+        }
+    }
+}
+
+MidiManager::MidiManager(Dispatch *dispatch) {
+    if(!AutoSetup(dispatch)) {
         std::cout << "APC40 Setup Failed!" << std::endl;
         exit(EXIT_FAILURE);
     }
 }
 
-bool MidiManager::AutoSetup() {
-    RtMidiIn *midi_in;
-    RtMidiOut *midi_out;
+bool MidiManager::AutoSetup(Dispatch *dispatch) {
+    RtMidiIn *midi_in = new RtMidiIn();
+    RtMidiOut *midi_out = new RtMidiOut();
     MidiDevice *midi_device = new MidiAPC40();
 
 
@@ -57,13 +79,14 @@ bool MidiManager::AutoSetup() {
         if (portName.find("APC40") != std::string::npos) {
             std::cout << "APC40 In Found " << std::endl;
             midi_in->openPort(i);
+            midi_in->setCallback(&MidiAPC40::HandleMidi, dispatch);
             midi_device->SetMidiIn(midi_in);
             break;
         }
     }
 
     // Check if APC40 was properly setup
-    if(!midi_device->SetupComplete()) {
+    if(midi_device->SetupComplete() == false) {
         // Destroy objects and return false
         delete(midi_device);
         delete(midi_in);
@@ -72,7 +95,9 @@ bool MidiManager::AutoSetup() {
     }
 
     // Change mode to something we can work with
-    ((MidiAPC40*)midi_device)->UpdateMode(1);
+    ((MidiAPC40*)midi_device)->UpdateMode(0);
     devices.insert(std::make_pair("APC40", midi_device));
+
+    return true;
 }
 

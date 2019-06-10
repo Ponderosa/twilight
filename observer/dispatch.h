@@ -14,9 +14,12 @@ class Dispatch {
 public:
     Dispatch();
     void CreateSubjects(std::list<std::string> sub_list, int num_channels);
-    void add_midi_device();
-    void add_UI();
-    void add_YAML();
+    Subject* GetSubject(std::string name);
+    void SetSubject(std::string name, double value);
+
+    //void add_midi_device();
+    //void add_UI();
+    //void add_YAML();
 private:
     std::map<std::string, Subject*> subject_map;
 };

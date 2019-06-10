@@ -8,6 +8,10 @@
 #include <list>
 #include <string>
 
+#define WIDTH 1920
+#define HEIGHT 1080
+#define SET_FULLSCREEN 0
+
 const int NUMBER_OF_CHANNELS = 8;
 
 const std::list<std::string> SUBJECT_MASTER =

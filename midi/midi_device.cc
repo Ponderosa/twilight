@@ -4,6 +4,7 @@
 
 #include "midi_device.h"
 
+
 MidiDevice::MidiDevice() {
     midi_in = nullptr;
     midi_out = nullptr;
@@ -18,7 +19,10 @@ void MidiDevice::SetMidiOut(RtMidiOut *midi_out){
 }
 
 bool MidiDevice::SetupComplete() {
-    return midi_in && midi_out;
+    if(midi_in == nullptr || midi_out == nullptr) {
+        return false;
+    }
+    return true;
 }
 
 void MidiDevice::SetCallBack(void (*mycallback)( double deltatime, std::vector< unsigned char > *message, void */*userData*/ )) {

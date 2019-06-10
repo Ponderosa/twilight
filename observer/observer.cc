@@ -5,9 +5,9 @@
 #include "observer.h"
 #include "subject.h"
 
-Observer::Observer(Subject *mod, int div) {
+Observer::Observer(Subject *mod, double value) {
     model = mod;
-    denom = div;
+    this->value = value;
     model->Attach(this);
 }
 
@@ -15,6 +15,10 @@ Subject* Observer::Observer::GetSubject() {
     return model;
 }
 
-int Observer::Observer::GetDivisor() {
-    return denom;
+double Observer::Observer::GetValue() {
+    return value;
+}
+
+void Observer::Update() {
+    value = model->GetVal();
 }
