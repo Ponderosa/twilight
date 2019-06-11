@@ -9,6 +9,7 @@
 #include "beam.h"
 #include "parameter.h"
 #include "observer/dispatch.h"
+#include "color.h"
 
 class Tunnel: public Beam {
 public:
@@ -18,6 +19,8 @@ public:
 private:
     int width;
     int height;
+
+    Color* color;
 
     Observer* intensity;
     Observer* num_segment;

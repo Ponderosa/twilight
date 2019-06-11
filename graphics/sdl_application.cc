@@ -38,6 +38,8 @@ bool SDLApplication::CreateWindow(int w, int h) {
         return false;
     }
 
+    cnt_beams = 0;
+
     return true;
 }
 

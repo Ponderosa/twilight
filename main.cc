@@ -37,12 +37,12 @@ int main(int argc, char *argv[]) {
         return 1;
 
     sdl.AddBeam(&tunnel1);
-    sdl.AddBeam(&tunnel2);
-    sdl.AddBeam(&tunnel3);
-    sdl.AddBeam(&tunnel4);
-    sdl.AddBeam(&tunnel5);
-    sdl.AddBeam(&tunnel6);
-    sdl.AddBeam(&tunnel7);
+    //sdl.AddBeam(&tunnel2);
+    //sdl.AddBeam(&tunnel3);
+    //sdl.AddBeam(&tunnel4);
+    //sdl.AddBeam(&tunnel5);
+    //sdl.AddBeam(&tunnel6);
+    //sdl.AddBeam(&tunnel7);
     //sdl.AddBeam(&tunnel8);
     sdl.AddBeam(&fps);
 

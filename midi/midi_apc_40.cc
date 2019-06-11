@@ -111,29 +111,32 @@ void MidiAPC40::HandleMidiChannel(std::vector< unsigned char > *message, Dispatc
 
     switch ((int)message->at(1))
     {
-        /* Count 1 */
         case 7:
             subject = "intensity_ch" + std::to_string(channel);
             break;
-            /* Count 1 */
         case 16:
             subject = "count_1_ch" + std::to_string(channel);
             break;
-            /* Count 1 */
         case 17:
             subject = "count_2_ch" + std::to_string(channel);
             break;
-            /* Count 1 */
         case 20:
             subject = "size_1_ch" + std::to_string(channel);
             break;
-            /* Count 1 */
         case 21:
             subject = "size_2_ch" + std::to_string(channel);
             break;
-            /* Count 1 */
-        case 22:
-            subject = "size_3_ch" + std::to_string(channel);
+        case 48:
+            subject = "hue_ch" + std::to_string(channel);
+            break;
+        case 49:
+            subject = "window_ch" + std::to_string(channel);
+            break;
+        case 50:
+            subject = "repeat_ch" + std::to_string(channel);
+            break;
+        case 51:
+            subject = "saturation_ch" + std::to_string(channel);
             break;
         default:
             std::cout << "Unknown midi message received!" << std::endl;

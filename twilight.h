@@ -19,7 +19,8 @@ const std::list<std::string> SUBJECT_MASTER =
         std::list<std::string>({"intensity", "mask", "bump", "mute"});
 
 const std::list<std::string> SUBJECT_COLOR =
-        std::list<std::string>({"module", "pattern", "repeat"});
+        std::list<std::string>({"module", "pattern", "repeat", "saturation", "hue",
+                                "window"});
 
 const std::list<std::string> SUBJECT_SHAPE =
         std::list<std::string>({"count_1", "count_2", "size_1", "size_2", "size_3",

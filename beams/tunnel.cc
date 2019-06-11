@@ -10,6 +10,8 @@ Tunnel::Tunnel(int width, int height, int channel, Dispatch* dispatch) {
     this->width = width;
     this->height = height;
 
+    color = new Color(channel, dispatch);
+
     num_segment = new Observer(dispatch->GetSubject("count_1_ch" + std::to_string(channel)), 20.0);
     blanking = new Observer(dispatch->GetSubject("count_2_ch" + std::to_string(channel)), 1);
     radius = new Observer(dispatch->GetSubject("size_1_ch" + std::to_string(channel)), 60);
@@ -53,14 +55,8 @@ void Tunnel::OnFrame(uint32_t tick) {
 }
 
 void Tunnel::OnRender(BLContext *ctx) {
-    BLRgba32 *color = new BLRgba32(0xFF1F7FFF);
-    color->a = (char)(intensity->GetValue() * 2);
-
-
     // Stroke
     ctx->setCompOp(BL_COMP_OP_SRC_OVER);
-    //ctx->setStrokeStyle(BLRgba32(0xFF1F7FFF));
-    ctx->setStrokeStyle(*color);
     ctx->setStrokeWidth(thickness->GetValue() * 10);
     ctx->setStrokeStartCap(BL_STROKE_CAP_BUTT);
     ctx->setStrokeEndCap(BL_STROKE_CAP_BUTT);
@@ -68,8 +64,12 @@ void Tunnel::OnRender(BLContext *ctx) {
     // Geometry
     std::list<BLArc>::iterator it;
 
+    // Color set
+    color->SetCount(arcs.size());
+
     // Make iterate point to begining and incerement it one by one till it reaches the end of list.
     for (it = arcs.begin(); it != arcs.end(); it++) {
+        ctx->setStrokeStyle(color->GetNextColor());
         ctx->strokeGeometry(BL_GEOMETRY_TYPE_ARC, &(*it));
     }
 
