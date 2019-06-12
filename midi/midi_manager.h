@@ -9,6 +9,11 @@
 #include "midi_device.h"
 #include "observer/dispatch.h"
 
+struct MidiDispatch {
+    Dispatch* dispatch;
+    MidiDevice* midi_device;
+};
+
 class MidiManager {
 public:
     MidiManager(Dispatch *dispatch);

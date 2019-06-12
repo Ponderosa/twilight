@@ -5,6 +5,7 @@
 #include <string>
 #include "midi_apc_40.h"
 #include "observer/dispatch.h"
+#include "midi_manager.h"
 
 MidiAPC40::MidiAPC40() {
 
@@ -48,7 +49,10 @@ void MidiAPC40::UpdateClipLaunch(unsigned char row, unsigned char column, unsign
 
 void MidiAPC40::HandleMidi(double deltatime, std::vector< unsigned char > *message, void *userData)
 {
-    Dispatch* dispatch = (Dispatch*) userData;
+    MidiDispatch* md = (MidiDispatch*) userData;
+    Dispatch* dispatch = md->dispatch;
+    MidiDevice* midiDevice = md->midi_device;
+    static int current_channel = 0;
 
     /* Print Message */
     unsigned int nBytes = message->size();
@@ -57,15 +61,53 @@ void MidiAPC40::HandleMidi(double deltatime, std::vector< unsigned char > *messa
     if ( nBytes > 0 )
         std::cout << "stamp = " << deltatime << std::endl;
 
-    /* Handle Channel Change */
+    /* Decode byte 0 */
+    unsigned char type = ((unsigned char)message->at(0)) >> 4;
+    unsigned char channel = (unsigned char)0x0F & ((unsigned char)message->at(0));
 
+    /* Handle Channel Change */
+    if (nBytes == 3) {
+        if(message->at(1) == 51 && type == 0x09) {
+
+//            /* Create mode change packet */
+//            std::vector<unsigned char> message {0xF0,
+//                                                0x47,
+//                                                0x00,
+//                                                0x73,
+//                                                0x60,
+//                                                0x00,
+//                                                0x03,
+//                                                0x80, /* Add mode here, address = 7 */
+//                                                0x33,
+//                                                0x00,
+//                                                0xF7};
+
+            /* Create mode change packet */
+            std::vector<unsigned char> message {0x80,
+                                                0x33,
+                                                0x00};
+
+            message[0] |= current_channel;
+
+            /* Send Message */
+            midiDevice->midi_out->sendMessage(&message);
+
+            current_channel = channel;
+
+            message[0] = current_channel | 0x90;
+            message[2] = B_ON;
+
+            /* Send Message */
+            midiDevice->midi_out->sendMessage(&message);
+        }
+    }
 
 
     /* Handle Beam Bin */
 
     /* Handle State Update */
     /* Check that we have a valid packet */
-    if ( nBytes == 3) {
+    if (nBytes == 3) {
         switch ((int)message->at(0))
         {
             /* Channel 1 */

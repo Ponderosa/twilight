@@ -79,7 +79,12 @@ bool MidiManager::AutoSetup(Dispatch *dispatch) {
         if (portName.find("APC40") != std::string::npos) {
             std::cout << "APC40 In Found " << std::endl;
             midi_in->openPort(i);
-            midi_in->setCallback(&MidiAPC40::HandleMidi, dispatch);
+
+            struct MidiDispatch *md = new MidiDispatch();
+            md->dispatch = dispatch;
+            md->midi_device = midi_device;
+
+            midi_in->setCallback(&MidiAPC40::HandleMidi, md);
             midi_device->SetMidiIn(midi_in);
             break;
         }
@@ -95,7 +100,7 @@ bool MidiManager::AutoSetup(Dispatch *dispatch) {
     }
 
     // Change mode to something we can work with
-    ((MidiAPC40*)midi_device)->UpdateMode(0);
+    ((MidiAPC40*)midi_device)->UpdateMode(1);
     devices.insert(std::make_pair("APC40", midi_device));
 
     return true;
