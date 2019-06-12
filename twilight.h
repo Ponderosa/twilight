@@ -8,9 +8,10 @@
 #include <list>
 #include <string>
 
-#define WIDTH 1920
-#define HEIGHT 1080
-#define SET_FULLSCREEN 0
+const int WIDTH = 1920;
+const int HEIGHT = 1080;
+const bool FPS_BEAM_ON = true;
+const bool SET_FULLSCREEN = false;
 
 const int NUMBER_OF_CHANNELS = 8;
 

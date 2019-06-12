@@ -19,9 +19,9 @@ bool SDLApplication::CreateWindow(int w, int h) {
     if (!window)
         return false;
 
-#if SET_FULLSCREEN
-    SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
-#endif
+    if(SET_FULLSCREEN) {
+        SDL_SetWindowFullscreen(window, SDL_WINDOW_FULLSCREEN);
+    }
 
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     //renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
