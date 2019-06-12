@@ -48,7 +48,7 @@ private:
     int frameTicks;
     //double fps;
 
-    Beam *beams[8];
+    Beam *beams[9];
     int cnt_beams;
 };
 

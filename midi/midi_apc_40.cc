@@ -65,90 +65,42 @@ void MidiAPC40::HandleMidi(double deltatime, std::vector< unsigned char > *messa
     unsigned char type = ((unsigned char)message->at(0)) >> 4;
     unsigned char channel = (unsigned char)0x0F & ((unsigned char)message->at(0));
 
+    if (nBytes != 3) {
+        std::cout << "Unknown length of midi message received!" << std::endl;
+        return;
+    }
+
     /* Handle Channel Change */
-    if (nBytes == 3) {
-        if(message->at(1) == 51 && type == 0x09) {
+    if(message->at(1) == 51 && type == 0x09) {
 
-//            /* Create mode change packet */
-//            std::vector<unsigned char> message {0xF0,
-//                                                0x47,
-//                                                0x00,
-//                                                0x73,
-//                                                0x60,
-//                                                0x00,
-//                                                0x03,
-//                                                0x80, /* Add mode here, address = 7 */
-//                                                0x33,
-//                                                0x00,
-//                                                0xF7};
+        /* Create mode change packet */
+        std::vector<unsigned char> message {0x80,
+                                            0x33,
+                                            0x00};
 
-            /* Create mode change packet */
-            std::vector<unsigned char> message {0x80,
-                                                0x33,
-                                                0x00};
+        message[0] |= current_channel;
 
-            message[0] |= current_channel;
+        /* Send Message */
+        midiDevice->midi_out->sendMessage(&message);
 
-            /* Send Message */
-            midiDevice->midi_out->sendMessage(&message);
+        current_channel = channel;
 
-            current_channel = channel;
+        message[0] = current_channel | 0x90;
+        message[2] = B_ON;
 
-            message[0] = current_channel | 0x90;
-            message[2] = B_ON;
-
-            /* Send Message */
-            midiDevice->midi_out->sendMessage(&message);
-        }
+        /* Send Message */
+        midiDevice->midi_out->sendMessage(&message);
     }
 
 
-    /* Handle Beam Bin */
 
-    /* Handle State Update */
-    /* Check that we have a valid packet */
-    if (nBytes == 3) {
-        switch ((int)message->at(0))
-        {
-            /* Channel 1 */
-            case 176:
-                HandleMidiChannel(message, dispatch, 1);
-                break;
-            /* Channel 2 */
-            case 177:
-                HandleMidiChannel(message, dispatch, 2);
-                break;
-            /* Channel 3 */
-            case 178:
-                HandleMidiChannel(message, dispatch, 3);
-                break;
-            /* Channel 4 */
-            case 179:
-                HandleMidiChannel(message, dispatch, 4);
-                break;
-            /* Channel 5 */
-            case 180:
-                HandleMidiChannel(message, dispatch, 5);
-                break;
-            /* Channel 6 */
-            case 181:
-                HandleMidiChannel(message, dispatch, 6);
-                break;
-            /* Channel 7 */
-            case 182:
-                HandleMidiChannel(message, dispatch, 7);
-                break;
-            /* Channel 8 */
-            case 183:
-                HandleMidiChannel(message, dispatch, 8);
-                break;
-            default:
-                std::cout << "Unknown midi message received!" << std::endl;
-        }
+    /* Handle Beam Update */
+    else {
+        HandleMidiChannel(message, dispatch, channel + 1, current_channel + 1);
     }
 }
 
-void MidiAPC40::HandleMidiChannel(std::vector< unsigned char > *message, Dispatch *dispatch, int channel) {
+void MidiAPC40::HandleMidiChannel(std::vector< unsigned char > *message, Dispatch *dispatch, int channel, int current_channel) {
     std::string subject;
 
     switch ((int)message->at(1))
@@ -157,28 +109,28 @@ void MidiAPC40::HandleMidiChannel(std::vector< unsigned char > *message, Dispatc
             subject = "intensity_ch" + std::to_string(channel);
             break;
         case 16:
-            subject = "count_1_ch" + std::to_string(channel);
+            subject = "count_1_ch" + std::to_string(current_channel);
             break;
         case 17:
-            subject = "count_2_ch" + std::to_string(channel);
+            subject = "count_2_ch" + std::to_string(current_channel);
             break;
         case 20:
-            subject = "size_1_ch" + std::to_string(channel);
+            subject = "size_1_ch" + std::to_string(current_channel);
             break;
         case 21:
-            subject = "size_2_ch" + std::to_string(channel);
+            subject = "size_2_ch" + std::to_string(current_channel);
             break;
         case 48:
-            subject = "hue_ch" + std::to_string(channel);
+            subject = "hue_ch" + std::to_string(current_channel);
             break;
         case 49:
-            subject = "window_ch" + std::to_string(channel);
+            subject = "window_ch" + std::to_string(current_channel);
             break;
         case 50:
-            subject = "repeat_ch" + std::to_string(channel);
+            subject = "repeat_ch" + std::to_string(current_channel);
             break;
         case 51:
-            subject = "saturation_ch" + std::to_string(channel);
+            subject = "saturation_ch" + std::to_string(current_channel);
             break;
         default:
             std::cout << "Unknown midi message received!" << std::endl;
