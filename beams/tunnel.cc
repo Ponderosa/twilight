@@ -18,7 +18,7 @@ Tunnel::Tunnel(int width, int height, int channel, Dispatch* dispatch) {
     radius = new Animator(dispatch->GetParameter("size_1_ch" + std::to_string(channel)), 0, 127);
     thickness = new Animator(dispatch->GetParameter("size_2_ch" + std::to_string(channel)), 0, 127);
     ellipse = new Animator(dispatch->GetParameter("size_3_ch" + std::to_string(channel)), 0, 127);
-    intensity = new Animator(dispatch->GetParameter("intensity_ch" + std::to_string(channel)), 0, 127);
+    chiclet_march = new Animator(dispatch->GetParameter("velocity_1_ch" + std::to_string(channel)), 0, 1);
 
     x_origin = 0.0;
     y_origin = 0.0;
@@ -32,8 +32,7 @@ void Tunnel::OnFrame(uint32_t tick) {
 
     // Handle ticks for smooth rendering
     uint32_t tick_diff = tick - this->tick;
-    //originAngle += 0.01;
-    originAngle += (float)tick_diff * 0.0001;
+    originAngle += (double)tick_diff * 0.002 * chiclet_march->GetScaled();
     this->tick = tick;
 
 

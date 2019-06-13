@@ -22,12 +22,12 @@ private:
 
     Color* color;
 
-    Animator* intensity;
     Animator* num_segment;
     Animator* blanking;
     Animator* radius;
     Animator* thickness;
     Animator* ellipse;
+    Animator* chiclet_march;
 
     double x_origin;
     double y_origin;
