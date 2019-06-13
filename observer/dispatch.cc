@@ -40,12 +40,12 @@ void Dispatch::CreateParameters(std::vector<std::string> sub_list, std::vector<d
 
         // Check for num_channels <= 1
         if (num_channels <= 1) {
-            sub = new Parameter(def);
+            sub = new Parameter(def/127.0);
             parameter_map[subject_name] = sub;
         } else {
             for (int j = 1; j <= num_channels; ++j) {
                 subject_name_full = subject_name + "_ch" + std::to_string(j);
-                sub = new Parameter(def);
+                sub = new Parameter(def/127.0);
                 parameter_map[subject_name_full] = sub;
             }
         }

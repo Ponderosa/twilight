@@ -9,8 +9,8 @@ double Animator::GetScaled() {
     //((b - a) * (x - min)) / (max - min) + a
     // a = Animator.min, b = Animator.max, min = Subject.min, max = Subject.max, x = Animator.Value
 
-    double sub_min = ((Animator*)model)->GetMin();
-    double sub_max = ((Animator*)model)->GetMax();
+    double sub_min = ((Parameter*)model)->GetMin();
+    double sub_max = ((Parameter*)model)->GetMax();
     double ret_val = ((max - min) * (value - sub_min)) / (sub_max - sub_min) + min;
 
     if (ret_val > max) {

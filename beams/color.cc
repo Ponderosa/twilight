@@ -5,13 +5,14 @@
 #include "color.h"
 #include <cmath>
 #include <iostream>
+#include "observer/animator.h"
 
 Color::Color(int channel, Dispatch* dispatch) {
-    repeat = new Observer(dispatch->GetParameter("repeat_ch" + std::to_string(channel)));
-    saturation = new Observer(dispatch->GetParameter("saturation_ch" + std::to_string(channel)));
-    hue = new Observer(dispatch->GetParameter("hue_ch" + std::to_string(channel)));
-    window = new Observer(dispatch->GetParameter("window_ch" + std::to_string(channel)));
-    alpha = new Observer(dispatch->GetParameter("intensity_ch" + std::to_string(channel)));
+    repeat = new Animator(dispatch->GetParameter("repeat_ch" + std::to_string(channel)), 0, 127);
+    saturation = new Animator(dispatch->GetParameter("saturation_ch" + std::to_string(channel)), 0, 127);
+    hue = new Animator(dispatch->GetParameter("hue_ch" + std::to_string(channel)), 0, 127);
+    window = new Animator(dispatch->GetParameter("window_ch" + std::to_string(channel)), 0, 127);
+    alpha = new Animator(dispatch->GetParameter("intensity_ch" + std::to_string(channel)), 0, 127);
 
     count = 1;
     current_color = 0;
@@ -24,15 +25,15 @@ void Color::SetCount(int cnt) {
 
 BLRgba32 Color::GetNextColor() {
     /* Need an incremental angle */
-    double range = window->GetValue() * (360.0/128.0);
+    double range = window->GetScaled() * (360.0/128.0);
     double increment = range/count;
-    double angle = hue->GetValue() * (360.0/128.0) + (increment * current_color);
+    double angle = hue->GetScaled() * (360.0/128.0) + (increment * current_color);
     current_color++;
     if(angle >= 360.0) {
         angle -= 360.0;
     }
-    double sat = saturation->GetValue() / 127.0;
-    double a = alpha->GetValue() / 127.0;
+    double sat = saturation->GetScaled() / 127.0;
+    double a = alpha->GetScaled() / 127.0;
     //std::cout << "alpha = " << a << std::endl;
     return HSVToRGB(angle, sat, a);
 }

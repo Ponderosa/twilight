@@ -218,5 +218,5 @@ void MidiAPC40::HandleMidiChannel(std::vector< unsigned char > *message, Dispatc
             return;
     }
 
-    dispatch->GetParameter(subject)->SetVal((double) message->at(2));
+    dispatch->GetParameter(subject)->SetMidi(message->at(2));
 }
