@@ -9,10 +9,12 @@
 #include <string>
 #include <vector>
 
-const int WIDTH = 1920;
-const int HEIGHT = 1080;
+//const int WIDTH = 1920;
+//const int HEIGHT = 1080;
+const int WIDTH = 2560;
+const int HEIGHT = 1440;
 const bool FPS_BEAM_ON = true;
-const bool SET_FULLSCREEN = false;
+const bool SET_FULLSCREEN = true;
 
 const int NUMBER_OF_CHANNELS = 8;
 
