@@ -14,8 +14,7 @@
   <component name="ChangeListManager">
     <list default="true" id="df8b80b8-724e-4ca9-b813-2c4373984bb8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/beams/tunnel.cc" beforeDir="false" afterPath="$PROJECT_DIR$/beams/tunnel.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beams/tunnel.h" beforeDir="false" afterPath="$PROJECT_DIR$/beams/tunnel.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/midi/midi_apc_40.cc" beforeDir="false" afterPath="$PROJECT_DIR$/midi/midi_apc_40.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/twilight.h" beforeDir="false" afterPath="$PROJECT_DIR$/twilight.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,8 +38,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cc" value="16730" />
-          <entry key="h" value="7392" />
+          <entry key="cc" value="16771" />
+          <entry key="h" value="7398" />
           <entry key="mm" value="1" />
           <entry key="txt" value="312" />
         </counts>
@@ -48,7 +47,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="312" />
-          <entry key="ObjectiveC" value="24123" />
+          <entry key="ObjectiveC" value="24170" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -57,7 +56,7 @@
           <entry key="cc" value="72" />
           <entry key="cmake" value="1" />
           <entry key="cpp" value="1" />
-          <entry key="h" value="105" />
+          <entry key="h" value="106" />
           <entry key="twilight (disassembly)" value="12" />
           <entry key="txt" value="3" />
         </counts>
@@ -67,7 +66,7 @@
           <entry key="CMakeCache.txt" value="1" />
           <entry key="CMakeLists.txt" value="3" />
           <entry key="Disassembly" value="12" />
-          <entry key="ObjectiveC" value="178" />
+          <entry key="ObjectiveC" value="179" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
@@ -83,8 +82,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/beams/tunnel.cc">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="56">
-                  <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+                <state relative-caret-position="600">
+                  <caret line="39" selection-start-line="39" selection-end-line="39" />
                   <folding>
                     <element signature="e#42#59#0" expanded="true" />
                   </folding>
@@ -97,18 +96,6 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="220">
                   <caret line="11" selection-start-line="11" selection-end-line="11" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/twilight.h">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="560">
-                  <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-                  <folding>
-                    <element signature="e#99#114#0" expanded="true" />
-                  </folding>
                 </state>
               </provider>
             </entry>
@@ -130,9 +117,21 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/twilight.h">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="680">
+                  <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+                  <folding>
+                    <element signature="e#99#114#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/midi/midi_apc_40.cc">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="732">
+                <state relative-caret-position="1360">
                   <caret line="89" column="54" selection-start-line="89" selection-start-column="54" selection-end-line="89" selection-end-column="54" />
                   <folding>
                     <element signature="e#42#59#0" expanded="true" />
@@ -228,7 +227,6 @@
         <option value="$PROJECT_DIR$/observer/parameter.cc" />
         <option value="$PROJECT_DIR$/observer/observer.h" />
         <option value="$PROJECT_DIR$/observer/observer.cc" />
-        <option value="$PROJECT_DIR$/twilight.h" />
         <option value="$PROJECT_DIR$/midi/midi_device.h" />
         <option value="$PROJECT_DIR$/observer/animator.h" />
         <option value="$PROJECT_DIR$/observer/dispatch.h" />
@@ -239,8 +237,9 @@
         <option value="$PROJECT_DIR$/midi/midi_manager.cc" />
         <option value="$PROJECT_DIR$/midi/midi_apc_40.h" />
         <option value="$PROJECT_DIR$/beams/tunnel.h" />
-        <option value="$PROJECT_DIR$/beams/tunnel.cc" />
         <option value="$PROJECT_DIR$/midi/midi_apc_40.cc" />
+        <option value="$PROJECT_DIR$/beams/tunnel.cc" />
+        <option value="$PROJECT_DIR$/twilight.h" />
       </list>
     </option>
   </component>
@@ -378,12 +377,12 @@
       <workItem from="1559738326014" duration="15104000" />
       <workItem from="1559765341208" duration="21610000" />
       <workItem from="1559849907993" duration="2688000" />
-      <workItem from="1560179647452" duration="58614000" />
+      <workItem from="1560179647452" duration="59399000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128926000" />
+    <option name="totallyTimeSpent" value="129711000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -744,16 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/beams/tunnel.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="574">
-          <caret line="29" column="15" lean-forward="true" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
-          <folding>
-            <element signature="e#95#110#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/midi/midi_apc_40.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -764,12 +753,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/twilight.h">
+    <entry file="file://$PROJECT_DIR$/midi/midi_apc_40.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+        <state relative-caret-position="1360">
+          <caret line="89" column="54" selection-start-line="89" selection-start-column="54" selection-end-line="89" selection-end-column="54" />
           <folding>
-            <element signature="e#99#114#0" expanded="true" />
+            <element signature="e#42#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -781,22 +770,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/beams/tunnel.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="29" column="15" lean-forward="true" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+          <folding>
+            <element signature="e#95#110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/beams/tunnel.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        <state relative-caret-position="600">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="e#42#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/midi/midi_apc_40.cc">
+    <entry file="file://$PROJECT_DIR$/twilight.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="732">
-          <caret line="89" column="54" selection-start-line="89" selection-start-column="54" selection-end-line="89" selection-end-column="54" />
+        <state relative-caret-position="680">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
           <folding>
-            <element signature="e#42#59#0" expanded="true" />
+            <element signature="e#99#114#0" expanded="true" />
           </folding>
         </state>
       </provider>
