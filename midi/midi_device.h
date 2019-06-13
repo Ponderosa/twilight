@@ -16,7 +16,7 @@ public:
     bool SetupComplete();
     void SetCallBack(void (*mycallback)( double deltatime, std::vector< unsigned char > *message, void */*userData*/ ));
 
-//protected:
+protected:
     RtMidiOut* midi_out;
     RtMidiIn* midi_in;
 };

@@ -18,7 +18,7 @@ MidiManager::MidiManager(Dispatch *dispatch) {
 bool MidiManager::AutoSetup(Dispatch *dispatch) {
     RtMidiIn *midi_in = new RtMidiIn();
     RtMidiOut *midi_out = new RtMidiOut();
-    MidiDevice *midi_device = new MidiAPC40();
+    MidiAPC40 *midi_device = new MidiAPC40();
 
 
     // Get number of output ports

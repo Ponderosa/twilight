@@ -8,7 +8,7 @@
 #include "midi_manager.h"
 
 MidiAPC40::MidiAPC40() {
-
+    channel = 0;
 }
 
 void MidiAPC40::UpdateMode(unsigned char mode) {
@@ -37,6 +37,16 @@ void MidiAPC40::UpdateMode(unsigned char mode) {
 
     /* Send Message */
     midi_out->sendMessage(&message);
+
+
+    /* Create mode change packet */
+    message.clear();
+    message = std::vector<unsigned char> {0x90,
+                                        0x33,
+                                        B_ON};
+
+    /* Send Message */
+    midi_out->sendMessage(&message);
 }
 
 void MidiAPC40::UpdateLed(unsigned char controlID, unsigned char channel, unsigned char state) {
@@ -47,13 +57,36 @@ void MidiAPC40::UpdateClipLaunch(unsigned char row, unsigned char column, unsign
 
 }
 
+void MidiAPC40::SetChannel(int channel) {
+    if(this->channel == channel) {
+        return;
+    }
+
+    /* Create mode change packet */
+    std::vector<unsigned char> message {0x80,
+                                        0x33,
+                                        0x00};
+
+    message[0] |= this->channel;
+
+    /* Send Message */
+    midi_out->sendMessage(&message);
+
+    this->channel = channel;
+
+    message[0] = this->channel | 0x90;
+    message[2] = B_ON;
+
+    /* Send Message */
+    midi_out->sendMessage(&message);
+}
+
 void MidiAPC40::HandleMidi(double deltatime, std::vector< unsigned char > *message, void *userData)
 {
     MidiDispatch* md = (MidiDispatch*) userData;
     Dispatch* dispatch = md->dispatch;
-    MidiDevice* midiDevice = md->midi_device;
-    static int current_channel = 0;
-
+    MidiAPC40* midi_device = (MidiAPC40*)md->midi_device;
+    
     /* Print Message */
     unsigned int nBytes = message->size();
     for ( unsigned int i=0; i<nBytes; i++ )
@@ -71,66 +104,47 @@ void MidiAPC40::HandleMidi(double deltatime, std::vector< unsigned char > *messa
     }
 
     /* Handle Channel Change */
-    if(message->at(1) == 51 && type == 0x09) {
-
-        /* Create mode change packet */
-        std::vector<unsigned char> message {0x80,
-                                            0x33,
-                                            0x00};
-
-        message[0] |= current_channel;
-
-        /* Send Message */
-        midiDevice->midi_out->sendMessage(&message);
-
-        current_channel = channel;
-
-        message[0] = current_channel | 0x90;
-        message[2] = B_ON;
-
-        /* Send Message */
-        midiDevice->midi_out->sendMessage(&message);
+    if(message->at(1) == 51 && (type == 0x09 || type == 0x08)) {
+        midi_device->SetChannel(channel);
     }
-
-
 
     /* Handle Beam Update */
     else {
-        HandleMidiChannel(message, dispatch, channel + 1, current_channel + 1);
+        midi_device->HandleMidiChannel(message, dispatch, channel);
     }
 }
 
-void MidiAPC40::HandleMidiChannel(std::vector< unsigned char > *message, Dispatch *dispatch, int channel, int current_channel) {
+void MidiAPC40::HandleMidiChannel(std::vector< unsigned char > *message, Dispatch *dispatch, int channel) {
     std::string subject;
 
     switch ((int)message->at(1))
     {
         case 7:
-            subject = "intensity_ch" + std::to_string(channel);
+            subject = "intensity_ch" + std::to_string(channel + 1);
             break;
         case 16:
-            subject = "count_1_ch" + std::to_string(current_channel);
+            subject = "count_1_ch" + std::to_string(this->channel + 1);
             break;
         case 17:
-            subject = "count_2_ch" + std::to_string(current_channel);
+            subject = "count_2_ch" + std::to_string(this->channel + 1);
             break;
         case 20:
-            subject = "size_1_ch" + std::to_string(current_channel);
+            subject = "size_1_ch" + std::to_string(this->channel + 1);
             break;
         case 21:
-            subject = "size_2_ch" + std::to_string(current_channel);
+            subject = "size_2_ch" + std::to_string(this->channel + 1);
             break;
         case 48:
-            subject = "hue_ch" + std::to_string(current_channel);
+            subject = "hue_ch" + std::to_string(this->channel + 1);
             break;
         case 49:
-            subject = "window_ch" + std::to_string(current_channel);
+            subject = "window_ch" + std::to_string(this->channel + 1);
             break;
         case 50:
-            subject = "repeat_ch" + std::to_string(current_channel);
+            subject = "repeat_ch" + std::to_string(this->channel + 1);
             break;
         case 51:
-            subject = "saturation_ch" + std::to_string(current_channel);
+            subject = "saturation_ch" + std::to_string(this->channel + 1);
             break;
         default:
             std::cout << "Unknown midi message received!" << std::endl;
