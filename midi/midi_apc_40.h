@@ -15,8 +15,10 @@ public:
     MidiAPC40();
     void UpdateMode(unsigned char mode);
     void UpdateLed(unsigned char controlID, unsigned char channel, unsigned char state);
+    void UpdateRingLed(std::vector<unsigned char> *buffer);
+    void UpdateRingLed(Dispatch* dispatch);
     void UpdateClipLaunch(unsigned char row, unsigned char column, unsigned char state);
-    void SetChannel(int channel);
+    void SetChannel(Dispatch *dispatch, int channel);
     static void HandleMidi(double deltatime, std::vector< unsigned char > *message, void *userData );
     void HandleMidiChannel(std::vector< unsigned char > *message, Dispatch *dispatch, int channel);
 private:
@@ -24,6 +26,12 @@ private:
 };
 
 typedef void (MidiAPC40::*HandleMidi)(double, std::vector<unsigned char>*, void*) const;
+
+enum ControlID {
+    NOTE_ON = 0x90,
+    NOTE_OFF = 0x80,
+    CONTINUOS = 0xB0,
+};
 
 enum LEDGeneric {
     G_OFF = 0,
