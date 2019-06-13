@@ -80,7 +80,7 @@ bool MidiManager::AutoSetup(Dispatch *dispatch) {
     }
 
     // Change mode to something we can work with
-    ((MidiAPC40*)midi_device)->UpdateMode(1);
+    ((MidiAPC40*)midi_device)->UpdateMode(dispatch, 1);
     devices.insert(std::make_pair("APC40", midi_device));
 
     return true;

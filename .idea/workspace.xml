@@ -13,11 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df8b80b8-724e-4ca9-b813-2c4373984bb8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/beams/color.cc" beforeDir="false" afterPath="$PROJECT_DIR$/beams/color.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beams/color.h" beforeDir="false" afterPath="$PROJECT_DIR$/beams/color.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/beams/tunnel.cc" beforeDir="false" afterPath="$PROJECT_DIR$/beams/tunnel.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/midi/midi_apc_40.cc" beforeDir="false" afterPath="$PROJECT_DIR$/midi/midi_apc_40.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/observer/dispatch.cc" beforeDir="false" afterPath="$PROJECT_DIR$/observer/dispatch.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/midi/midi_apc_40.h" beforeDir="false" afterPath="$PROJECT_DIR$/midi/midi_apc_40.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/midi/midi_manager.cc" beforeDir="false" afterPath="$PROJECT_DIR$/midi/midi_manager.cc" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,8 +39,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cc" value="16425" />
-          <entry key="h" value="7304" />
+          <entry key="cc" value="16620" />
+          <entry key="h" value="7328" />
           <entry key="mm" value="1" />
           <entry key="txt" value="312" />
         </counts>
@@ -50,17 +48,17 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CMakeLists.txt" value="312" />
-          <entry key="ObjectiveC" value="23730" />
+          <entry key="ObjectiveC" value="23949" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Makefile" value="1" />
-          <entry key="cc" value="68" />
+          <entry key="cc" value="69" />
           <entry key="cmake" value="1" />
           <entry key="cpp" value="1" />
           <entry key="h" value="101" />
-          <entry key="twilight (disassembly)" value="11" />
+          <entry key="twilight (disassembly)" value="12" />
           <entry key="txt" value="3" />
         </counts>
       </usages-collector>
@@ -68,8 +66,8 @@
         <counts>
           <entry key="CMakeCache.txt" value="1" />
           <entry key="CMakeLists.txt" value="3" />
-          <entry key="Disassembly" value="11" />
-          <entry key="ObjectiveC" value="170" />
+          <entry key="Disassembly" value="12" />
+          <entry key="ObjectiveC" value="171" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
@@ -82,10 +80,22 @@
     <splitter split-orientation="horizontal" split-proportion="0.57084095">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/midi/midi_manager.cc">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="599">
+                  <caret line="82" column="52" selection-start-line="82" selection-start-column="52" selection-end-line="82" selection-end-column="52" />
+                  <folding>
+                    <element signature="e#42#67#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/observer/dispatch.cc">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="892">
+                <state relative-caret-position="656">
                   <caret line="48" column="51" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
                   <folding>
                     <element signature="e#125#142#0" expanded="true" />
@@ -94,11 +104,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/midi/midi_apc_40.cc">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="525">
-                  <caret line="220" selection-start-line="220" selection-end-line="220" />
+                <state relative-caret-position="460">
+                  <caret line="47" column="61" selection-start-line="47" selection-start-column="61" selection-end-line="47" selection-end-column="61" />
                   <folding>
                     <element signature="e#42#59#0" expanded="true" />
                   </folding>
@@ -109,7 +119,7 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/observer/parameter.cc">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
+                <state relative-caret-position="480">
                   <caret line="24" selection-start-line="24" selection-end-line="24" />
                 </state>
               </provider>
@@ -118,8 +128,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/observer/animator.cc">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="440">
-                  <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+                <state relative-caret-position="640">
+                  <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
                 </state>
               </provider>
             </entry>
@@ -139,8 +149,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/beams/tunnel.cc">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="500">
-                  <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+                <state relative-caret-position="193">
+                  <caret line="30" selection-start-line="30" selection-end-line="30" />
                   <folding>
                     <element signature="e#42#59#0" expanded="true" />
                   </folding>
@@ -173,7 +183,7 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/twilight.h">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="560">
@@ -197,11 +207,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/midi/midi_apc_40.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="340">
-                  <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+                <state relative-caret-position="300">
+                  <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
                   <folding>
                     <element signature="e#95#112#0" expanded="true" />
                   </folding>
@@ -298,17 +308,17 @@
         <option value="$PROJECT_DIR$/observer/observer.cc" />
         <option value="$PROJECT_DIR$/twilight.h" />
         <option value="$PROJECT_DIR$/midi/midi_device.h" />
-        <option value="$PROJECT_DIR$/midi/midi_manager.cc" />
         <option value="$PROJECT_DIR$/observer/animator.h" />
-        <option value="$PROJECT_DIR$/observer/animator.cc" />
         <option value="$PROJECT_DIR$/observer/dispatch.h" />
         <option value="$PROJECT_DIR$/beams/tunnel.h" />
-        <option value="$PROJECT_DIR$/midi/midi_apc_40.h" />
-        <option value="$PROJECT_DIR$/midi/midi_apc_40.cc" />
         <option value="$PROJECT_DIR$/beams/color.h" />
         <option value="$PROJECT_DIR$/beams/tunnel.cc" />
         <option value="$PROJECT_DIR$/beams/color.cc" />
         <option value="$PROJECT_DIR$/observer/dispatch.cc" />
+        <option value="$PROJECT_DIR$/observer/animator.cc" />
+        <option value="$PROJECT_DIR$/midi/midi_manager.cc" />
+        <option value="$PROJECT_DIR$/midi/midi_apc_40.h" />
+        <option value="$PROJECT_DIR$/midi/midi_apc_40.cc" />
       </list>
     </option>
   </component>
@@ -318,6 +328,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
     <option name="width" value="2560" />
     <option name="height" value="1406" />
@@ -445,12 +456,12 @@
       <workItem from="1559738326014" duration="15104000" />
       <workItem from="1559765341208" duration="21610000" />
       <workItem from="1559849907993" duration="2688000" />
-      <workItem from="1560179647452" duration="56996000" />
+      <workItem from="1560179647452" duration="57857000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="127308000" />
+    <option name="totallyTimeSpent" value="128169000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -492,6 +503,17 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/observer/animator.cc</url>
+          <line>11</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file:///usr/include/c++/7/bits/atomic_base.h">
@@ -692,16 +714,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/midi/midi_manager.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-          <folding>
-            <element signature="e#42#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/observer/subject.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
@@ -774,30 +786,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/midi/midi_apc_40.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="220" selection-start-line="220" selection-end-line="220" />
-          <folding>
-            <element signature="e#42#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/observer/parameter.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/observer/animator.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/beams/color.cc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -812,26 +800,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/beams/tunnel.cc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-          <folding>
-            <element signature="e#42#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/midi/midi_apc_40.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-          <folding>
-            <element signature="e#95#112#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -857,10 +825,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/observer/dispatch.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="892">
+        <state relative-caret-position="656">
           <caret line="48" column="51" selection-start-line="48" selection-start-column="51" selection-end-line="48" selection-end-column="51" />
           <folding>
             <element signature="e#125#142#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/observer/parameter.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/beams/tunnel.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#42#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/observer/animator.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/midi/midi_manager.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="82" column="52" selection-start-line="82" selection-start-column="52" selection-end-line="82" selection-end-column="52" />
+          <folding>
+            <element signature="e#42#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/midi/midi_apc_40.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+          <folding>
+            <element signature="e#95#112#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/midi/midi_apc_40.cc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="47" column="61" selection-start-line="47" selection-start-column="61" selection-end-line="47" selection-end-column="61" />
+          <folding>
+            <element signature="e#42#59#0" expanded="true" />
           </folding>
         </state>
       </provider>

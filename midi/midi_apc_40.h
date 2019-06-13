@@ -13,7 +13,7 @@
 class MidiAPC40: public MidiDevice {
 public:
     MidiAPC40();
-    void UpdateMode(unsigned char mode);
+    void UpdateMode(Dispatch* dispatch, unsigned char mode);
     void UpdateLed(unsigned char controlID, unsigned char channel, unsigned char state);
     void UpdateRingLed(std::vector<unsigned char> *buffer);
     void UpdateRingLed(Dispatch* dispatch);

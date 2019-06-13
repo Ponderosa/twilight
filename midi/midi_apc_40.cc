@@ -3,6 +3,8 @@
 //
 
 #include <string>
+#include <thread>
+#include <chrono>
 #include "midi_apc_40.h"
 #include "observer/dispatch.h"
 #include "midi_manager.h"
@@ -11,7 +13,7 @@ MidiAPC40::MidiAPC40() {
     channel = 0;
 }
 
-void MidiAPC40::UpdateMode(unsigned char mode) {
+void MidiAPC40::UpdateMode(Dispatch* dispatch, unsigned char mode) {
 
     /* Sanitize input */
     if (mode > 2) {
@@ -39,7 +41,13 @@ void MidiAPC40::UpdateMode(unsigned char mode) {
     midi_out->sendMessage(&message);
 
     /* Turn on Channel 1 Led */
-    UpdateLed(NOTE_ON, 0x33, B_ON);
+    //UpdateLed(NOTE_ON, 0x33, B_ON);
+
+    for(int i = 7; i >= 0; --i) {
+        SetChannel(dispatch, i);
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    }
+
 }
 
 void MidiAPC40::UpdateRingLed(std::vector<unsigned char> *buffer) {
