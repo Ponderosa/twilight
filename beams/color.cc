@@ -8,7 +8,7 @@
 #include "observer/animator.h"
 
 Color::Color(int channel, Dispatch* dispatch) {
-    repeat = new Animator(dispatch->GetParameter("repeat_ch" + std::to_string(channel)), 0, 127);
+    repeat = new Animator(dispatch->GetParameter("repeat_ch" + std::to_string(channel)), 1, 8);
     saturation = new Animator(dispatch->GetParameter("saturation_ch" + std::to_string(channel)), 0, 127);
     hue = new Animator(dispatch->GetParameter("hue_ch" + std::to_string(channel)), 0, 127);
     window = new Animator(dispatch->GetParameter("window_ch" + std::to_string(channel)), 0, 127);
@@ -24,13 +24,18 @@ void Color::SetCount(int cnt) {
 }
 
 BLRgba32 Color::GetNextColor() {
+    /* Handle Repeat - Restart current_color */
+    int current_color_repeat = current_color;
+    int limit_range = count / (int)repeat->GetScaled();
+    current_color_repeat = current_color_repeat % limit_range;
+
     /* Need an incremental angle */
     double range = window->GetScaled() * (360.0/128.0);
     double increment = range/count;
-    double angle = hue->GetScaled() * (360.0/128.0) + (increment * current_color);
+    double angle = hue->GetScaled() * (360.0/128.0) + (increment * current_color_repeat * (int)repeat->GetScaled());
     current_color++;
     if(angle >= 360.0) {
-        angle -= 360.0;
+        angle = fmod(angle, 360.0);
     }
     double sat = saturation->GetScaled() / 127.0;
     double a = alpha->GetScaled() / 127.0;
