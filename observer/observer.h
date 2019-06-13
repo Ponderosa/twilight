@@ -9,12 +9,12 @@ class Subject;
 
 class Observer {
 public:
-    Observer(Subject *mod, double value);
+    //Observer();
+    Observer(Subject *mod);
     void Update();
     double GetValue();
 protected:
     Subject *GetSubject();
-private:
     Subject *model;
     double value;
 };

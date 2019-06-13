@@ -7,7 +7,6 @@
 
 #include <list>
 #include "beam.h"
-#include "parameter.h"
 #include "observer/dispatch.h"
 #include "color.h"
 

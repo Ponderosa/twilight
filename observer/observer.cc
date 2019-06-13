@@ -5,10 +5,12 @@
 #include "observer.h"
 #include "subject.h"
 
-Observer::Observer(Subject *mod, double value) {
+//Observer::Observer() {}
+
+Observer::Observer(Subject *mod) {
     model = mod;
-    this->value = value;
     model->Attach(this);
+    value = model->GetVal();
 }
 
 Subject* Observer::Observer::GetSubject() {

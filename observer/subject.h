@@ -11,6 +11,7 @@ class Observer;
 
 class Subject {
 public:
+    Subject(double value) : value(value) {}
     void Attach(Observer *obs);
     void SetVal(double val);
     double GetVal();

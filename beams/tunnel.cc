@@ -12,12 +12,12 @@ Tunnel::Tunnel(int width, int height, int channel, Dispatch* dispatch) {
 
     color = new Color(channel, dispatch);
 
-    num_segment = new Observer(dispatch->GetSubject("count_1_ch" + std::to_string(channel)), 20.0);
-    blanking = new Observer(dispatch->GetSubject("count_2_ch" + std::to_string(channel)), 1);
-    radius = new Observer(dispatch->GetSubject("size_1_ch" + std::to_string(channel)), 60);
-    thickness = new Observer(dispatch->GetSubject("size_2_ch" + std::to_string(channel)), 10);
-    ellipse = new Observer(dispatch->GetSubject("size_3_ch" + std::to_string(channel)), 1);
-    intensity = new Observer(dispatch->GetSubject("intensity_ch" + std::to_string(channel)), 127);
+    num_segment = new Observer(dispatch->GetSubject("count_1_ch" + std::to_string(channel)));
+    blanking = new Observer(dispatch->GetSubject("count_2_ch" + std::to_string(channel)));
+    radius = new Observer(dispatch->GetSubject("size_1_ch" + std::to_string(channel)));
+    thickness = new Observer(dispatch->GetSubject("size_2_ch" + std::to_string(channel)));
+    ellipse = new Observer(dispatch->GetSubject("size_3_ch" + std::to_string(channel)));
+    intensity = new Observer(dispatch->GetSubject("intensity_ch" + std::to_string(channel)));
 
     x_origin = 0.0;
     y_origin = 0.0;

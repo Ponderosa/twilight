@@ -19,6 +19,6 @@ double Subject::GetVal() {
 }
 
 void Subject::Notify() {
-    for (int i = 0; i < views.size(); i++)
-        views[i]->Update();
+    for (auto i : views)
+        i->Update();
 }

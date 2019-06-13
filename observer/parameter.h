@@ -6,17 +6,19 @@
 #define TWILIGHT_PARAMETER_H
 
 #include "observer.h"
+#include "subject.h"
 
-class Parameter: public Observer {
+class Parameter: public Subject {
 public:
-    Parameter();
+    Parameter(double value, double min = 0, double max = 1) : Subject(value),  min(min), max(max) {}
+    void SetValScaled(double val);
+    void SetMidi(int val);
+    double GetMin();
+    double GetMax();
     int GetMidi();
-    double GetScalar();
-    double GetScalarAnimated();
 private:
     double max;
     double min;
-    //Animator
 };
 
 
