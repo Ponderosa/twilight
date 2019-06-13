@@ -5,6 +5,7 @@
 #include <math.h>
 #include "tunnel.h"
 #include "observer/dispatch.h"
+#include "observer/animator.h"
 
 Tunnel::Tunnel(int width, int height, int channel, Dispatch* dispatch) {
     this->width = width;
@@ -12,12 +13,12 @@ Tunnel::Tunnel(int width, int height, int channel, Dispatch* dispatch) {
 
     color = new Color(channel, dispatch);
 
-    num_segment = new Observer(dispatch->GetSubject("count_1_ch" + std::to_string(channel)));
-    blanking = new Observer(dispatch->GetSubject("count_2_ch" + std::to_string(channel)));
-    radius = new Observer(dispatch->GetSubject("size_1_ch" + std::to_string(channel)));
-    thickness = new Observer(dispatch->GetSubject("size_2_ch" + std::to_string(channel)));
-    ellipse = new Observer(dispatch->GetSubject("size_3_ch" + std::to_string(channel)));
-    intensity = new Observer(dispatch->GetSubject("intensity_ch" + std::to_string(channel)));
+    num_segment = new Animator(dispatch->GetParameter("count_1_ch" + std::to_string(channel)));
+    blanking = new Animator(dispatch->GetParameter("count_2_ch" + std::to_string(channel)));
+    radius = new Animator(dispatch->GetParameter("size_1_ch" + std::to_string(channel)));
+    thickness = new Animator(dispatch->GetParameter("size_2_ch" + std::to_string(channel)));
+    ellipse = new Animator(dispatch->GetParameter("size_3_ch" + std::to_string(channel)));
+    intensity = new Animator(dispatch->GetParameter("intensity_ch" + std::to_string(channel)));
 
     x_origin = 0.0;
     y_origin = 0.0;

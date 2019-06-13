@@ -9,14 +9,15 @@
 #include <string>
 #include <map>
 #include "subject.h"
+#include "parameter.h"
 
 class Dispatch {
 public:
     Dispatch();
-    void CreateSubjects(std::vector<std::string> sub_list, std::vector<double>, int num_channels);
-    Subject* GetSubject(std::string name);
+    void CreateParameters(std::vector<std::string> sub_list, std::vector<double>, int num_channels);
+    Parameter* GetParameter(std::string name);
 private:
-    std::map<std::string, Subject*> subject_map;
+    std::map<std::string, Parameter*> parameter_map;
 };
 
 

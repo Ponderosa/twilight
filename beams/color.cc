@@ -7,11 +7,11 @@
 #include <iostream>
 
 Color::Color(int channel, Dispatch* dispatch) {
-    repeat = new Observer(dispatch->GetSubject("repeat_ch" + std::to_string(channel)));
-    saturation = new Observer(dispatch->GetSubject("saturation_ch" + std::to_string(channel)));
-    hue = new Observer(dispatch->GetSubject("hue_ch" + std::to_string(channel)));
-    window = new Observer(dispatch->GetSubject("window_ch" + std::to_string(channel)));
-    alpha = new Observer(dispatch->GetSubject("intensity_ch" + std::to_string(channel)));
+    repeat = new Observer(dispatch->GetParameter("repeat_ch" + std::to_string(channel)));
+    saturation = new Observer(dispatch->GetParameter("saturation_ch" + std::to_string(channel)));
+    hue = new Observer(dispatch->GetParameter("hue_ch" + std::to_string(channel)));
+    window = new Observer(dispatch->GetParameter("window_ch" + std::to_string(channel)));
+    alpha = new Observer(dispatch->GetParameter("intensity_ch" + std::to_string(channel)));
 
     count = 1;
     current_color = 0;
