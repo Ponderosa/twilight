@@ -1,17 +1,23 @@
 #include <blend2d.h>
 #include <SDL.h>
 #include <math.h>
+#include <thread>
+#include <mutex>
 #include "twilight.h"
 #include "graphics/sdl_application.h"
 #include "beams/fps.h"
 #include "beams/tunnel.h"
 #include "midi/midi_manager.h"
 #include "observer/dispatch.h"
+#include "gui/gui.h"
 
 //#define ARRAY_SIZE(X) uint32_t(sizeof(X) / sizeof(X[0]))
 
 
 int main(int argc, char *argv[]) {
+    // Dispatch Mutex
+    std::mutex dispatch_mutex;
+
     // Create Dispatch - Do before beam creation!
     Dispatch dispatch;
 
@@ -46,5 +52,11 @@ int main(int argc, char *argv[]) {
     sdl.AddBeam(&tunnel8);
     sdl.AddBeam(&fps);
 
-    return sdl.Run();
+    // Spin up GUI thread
+    std::thread gui = std::thread(Gui(&dispatch));
+    //gui.join();
+
+    int ret_val = sdl.Run();
+    gui.join();
+    return ret_val;
 }
