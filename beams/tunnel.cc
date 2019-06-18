@@ -15,14 +15,15 @@ Tunnel::Tunnel(int width, int height, int channel, Dispatch* dispatch) {
 
     num_segment = new Observer(dispatch->GetSubject("count_1_ch" + std::to_string(channel)), 0, 127);
     blanking = new Observer(dispatch->GetSubject("count_2_ch" + std::to_string(channel)), 0, 127);
-    radius = new Observer(dispatch->GetSubject("size_1_ch" + std::to_string(channel)), 0, 127);
-    thickness = new Observer(dispatch->GetSubject("size_2_ch" + std::to_string(channel)), 0, 127);
-    ellipse = new Observer(dispatch->GetSubject("size_3_ch" + std::to_string(channel)), 0, 127);
+    radius = new Observer(dispatch->GetSubject("size_1_ch" + std::to_string(channel)), 0, 1270);
+    thickness = new Observer(dispatch->GetSubject("size_2_ch" + std::to_string(channel)), 0, 1270);
+    ellipse = new Observer(dispatch->GetSubject("size_3_ch" + std::to_string(channel)), -500, 500);
     chiclet_march = new Observer(dispatch->GetSubject("velocity_1_ch" + std::to_string(channel)), -1, 1);
 
     x_origin = 0.0;
     y_origin = 0.0;
     originAngle = 0.0;
+    tick = 0;
 }
 
 void Tunnel::OnFrame(uint32_t tick) {
@@ -45,12 +46,16 @@ void Tunnel::OnFrame(uint32_t tick) {
     for(int i = 0; i < num_segment->GetScaled(); ++i) {
         if ((blank == 0) || ((blank > 0) && (i % (blank + 1) == 0)) || ((blank < 0) && (i % blank))) {
             // Make an Arc
-            arc.cx = double(width) / 2.0 + x_origin;
-            arc.cy = double(height) / 2.0 + y_origin;
-            arc.rx = radius->GetScaled() * 10;
-            arc.ry = radius->GetScaled() * 10;
             arc.start = (originAngle + (360.0 / num_segment->GetScaled() * double(i)) * (M_PI / 180.0));
             arc.sweep = 360.0 / num_segment->GetScaled() * (M_PI / 180.0);
+
+            arc.rx = radius->GetScaled() + thickness->GetScaled() / 2;
+            arc.ry = radius->GetScaled() + thickness->GetScaled() / 2;
+
+            double center_angle = arc.start + arc.sweep/2;
+            arc.cx = double(width) / 2.0 + x_origin + ellipse->GetScaled() * cos(center_angle);
+            arc.cy = double(height) / 2.0 + y_origin;
+
             arcs.push_back(arc);
         }
     }
@@ -59,7 +64,7 @@ void Tunnel::OnFrame(uint32_t tick) {
 void Tunnel::OnRender(BLContext *ctx) {
     // Stroke
     ctx->setCompOp(BL_COMP_OP_SRC_OVER);
-    ctx->setStrokeWidth(thickness->GetScaled() * 10);
+    ctx->setStrokeWidth(thickness->GetScaled());
     ctx->setStrokeStartCap(BL_STROKE_CAP_BUTT);
     ctx->setStrokeEndCap(BL_STROKE_CAP_BUTT);
 

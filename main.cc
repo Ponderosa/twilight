@@ -53,9 +53,9 @@ int main(int argc, char *argv[]) {
     sdl.AddBeam(&fps);
 
     // Spin up GUI thread
-    //std::thread gui = std::thread(Gui(&dispatch));
+    std::thread gui = std::thread(Gui(&dispatch));
 
     int ret_val = sdl.Run();
-    //gui.join();
+    gui.join();
     return ret_val;
 }

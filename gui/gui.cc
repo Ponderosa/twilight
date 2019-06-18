@@ -177,6 +177,47 @@ void Gui::operator()() {
             ImGui::End();
         }
 
+        /* Twilight */
+        ImGui::SetNextWindowPos(ImVec2(20, 200), ImGuiCond_FirstUseEver);
+        ImGui::Begin("Twilight");
+        ImGui::Text("Twilight Test");
+
+        // Fader 1
+        //ImGui::PushID("intensity");
+        float intensity;
+        for (int i = 1; i <= 8; i++)
+        {
+            if (i > 1) ImGui::SameLine();
+            ImGui::PushID(i);
+            ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, 40);
+            intensity = dispatch->GetSubject("intensity_ch" + std::to_string(i))->GetVal();
+            std::string label = "Ch" + std::to_string(i) + "\n%.2f\n";
+            ImGui::VSliderFloat("##v", ImVec2(40,160), &intensity, 0.0f, 1.0f, label.c_str());
+            dispatch->GetSubject("intensity_ch" + std::to_string(i))->SetVal(intensity);
+            ImGui::PopStyleVar();
+            ImGui::PopID();
+        }
+
+//        float test = dispatch->GetSubject("intensity_ch1")->GetVal();
+//        ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, 40);
+//        ImGui::PushID(1);
+//        ImGui::VSliderFloat("##v", ImVec2(40,160), &test, 0.0f, 1.0f, "Ch1\n%.2f\n");
+//        ImGui::PopStyleVar();
+//        ImGui::PopID();
+//        dispatch->GetSubject("intensity_ch1")->SetVal(test);
+//
+//        // Fader 2
+//        ImGui::SameLine();
+//        test = dispatch->GetSubject("intensity_ch2")->GetVal();
+//        ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, 40);
+//        ImGui::PushID(2);
+//        ImGui::VSliderFloat("##v", ImVec2(40,160), &test, 0.0f, 1.0f, "Ch2\n%.2f\n");
+//        ImGui::PopStyleVar();
+//        ImGui::PopID();
+//        dispatch->GetSubject("intensity_ch2")->SetVal(test);
+
+        ImGui::End();
+
         // Rendering
         ImGui::Render();
         glViewport(0, 0, (int)io.DisplaySize.x, (int)io.DisplaySize.y);

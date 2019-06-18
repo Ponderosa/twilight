@@ -28,7 +28,7 @@ const std::vector<double> SUBJECT_COLOR_DEFAULT = {0.0, 0.0, 0.0, 0.0, 0.0};
 const std::vector<std::string> SUBJECT_SHAPE
     {"count_1", "count_2", "size_1", "size_2", "size_3", "origin_x", "origin_y"};
 const std::vector<double> SUBJECT_SHAPE_DEFAULT
-    {126, 66, 45, 10, 0.0, 0.0, 0.0};
+    {126, 66, 45, 10, 63, 0.0, 0.0};
 
 const std::vector<std::string> SUBJECT_VELOCITY {"velocity_1", "velocity_2"};
 const std::vector<double> SUBJECT_VELOCITY_DEFAULT {64, 0.0};
