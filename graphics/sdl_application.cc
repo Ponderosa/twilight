@@ -121,14 +121,17 @@ void SDLApplication::OnFrame() {
 }
 
 void SDLApplication::OnRender() {
+
     BLContext ctx(blSurface);
 
     ctx.setCompOp(BL_COMP_OP_SRC_COPY);
     ctx.fillAll();
 
     for(int i = 0; i < cnt_beams; ++ i) {
+        BLContext ctx(blSurface);
         beams[i]->OnRender(&ctx);
     }
+
 }
 
 void SDLApplication::Blit() {

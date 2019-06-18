@@ -198,24 +198,6 @@ void Gui::operator()() {
             ImGui::PopID();
         }
 
-//        float test = dispatch->GetSubject("intensity_ch1")->GetVal();
-//        ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, 40);
-//        ImGui::PushID(1);
-//        ImGui::VSliderFloat("##v", ImVec2(40,160), &test, 0.0f, 1.0f, "Ch1\n%.2f\n");
-//        ImGui::PopStyleVar();
-//        ImGui::PopID();
-//        dispatch->GetSubject("intensity_ch1")->SetVal(test);
-//
-//        // Fader 2
-//        ImGui::SameLine();
-//        test = dispatch->GetSubject("intensity_ch2")->GetVal();
-//        ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, 40);
-//        ImGui::PushID(2);
-//        ImGui::VSliderFloat("##v", ImVec2(40,160), &test, 0.0f, 1.0f, "Ch2\n%.2f\n");
-//        ImGui::PopStyleVar();
-//        ImGui::PopID();
-//        dispatch->GetSubject("intensity_ch2")->SetVal(test);
-
         ImGui::End();
 
         // Rendering

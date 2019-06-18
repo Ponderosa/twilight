@@ -28,10 +28,13 @@ private:
     Observer* thickness;
     Observer* ellipse;
     Observer* chiclet_march;
+    Observer* context_rotate;
 
+    double scaled_thickness;
     double x_origin;
     double y_origin;
     double originAngle;
+    double contextAngle;
 
     uint32_t tick;
 

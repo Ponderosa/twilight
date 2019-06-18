@@ -74,11 +74,9 @@ void MidiAPC40::UpdateRingLed(Dispatch* dispatch) {
     buffer.push_back(md);
     // DC 3
     md = (unsigned char) dispatch->GetSubject("velocity_1_ch" + std::to_string(channel + 1))->GetMidi();
-    //md = 0;
     buffer.push_back(md);
     // DC 4
-    //md = (unsigned char)dispatch->GetSubject("count_1_ch" + std::to_string(channel + 1))->GetMidi();
-    md = 0;
+    md = (unsigned char)dispatch->GetSubject("velocity_2_ch" + std::to_string(channel + 1))->GetMidi();
     buffer.push_back(md);
     // DC 5
     md = (unsigned char) dispatch->GetSubject("size_1_ch" + std::to_string(channel + 1))->GetMidi();
@@ -205,6 +203,9 @@ void MidiAPC40::HandleMidiChannel(std::vector< unsigned char > *message, Dispatc
             break;
         case 18:
             subject = "velocity_1_ch" + std::to_string(this->channel + 1);
+            break;
+        case 19:
+            subject = "velocity_2_ch" + std::to_string(this->channel + 1);
             break;
         case 20:
             subject = "size_1_ch" + std::to_string(this->channel + 1);

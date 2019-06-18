@@ -19,6 +19,7 @@ Tunnel::Tunnel(int width, int height, int channel, Dispatch* dispatch) {
     thickness = new Observer(dispatch->GetSubject("size_2_ch" + std::to_string(channel)), 0, 1270);
     ellipse = new Observer(dispatch->GetSubject("size_3_ch" + std::to_string(channel)), -500, 500);
     chiclet_march = new Observer(dispatch->GetSubject("velocity_1_ch" + std::to_string(channel)), -1, 1);
+    context_rotate = new Observer(dispatch->GetSubject("velocity_2_ch" + std::to_string(channel)), -1, 1);
 
     x_origin = 0.0;
     y_origin = 0.0;
@@ -37,10 +38,19 @@ void Tunnel::OnFrame(uint32_t tick) {
         originAngle += (double) tick_diff * 0.002 * chiclet_march->GetScaled();
     }
 
+    // Handle ticks for smooth rendering
+    if(abs(context_rotate->GetScaled()) > 0.02) {
+        uint32_t tick_diff = tick - this->tick;
+        contextAngle += (double) tick_diff * 0.002 * context_rotate->GetScaled();
+    }
+
     this->tick = tick;
 
     // Drop all arcs from last frame
     arcs.clear();
+
+    // Save thickness for rendering
+    scaled_thickness = thickness->GetScaled();
 
     // Check if we are positively blanking or negatively blanking
     for(int i = 0; i < num_segment->GetScaled(); ++i) {
@@ -59,12 +69,14 @@ void Tunnel::OnFrame(uint32_t tick) {
             arcs.push_back(arc);
         }
     }
+
+
 }
 
 void Tunnel::OnRender(BLContext *ctx) {
     // Stroke
     ctx->setCompOp(BL_COMP_OP_SRC_OVER);
-    ctx->setStrokeWidth(thickness->GetScaled());
+    ctx->setStrokeWidth(scaled_thickness);
     ctx->setStrokeStartCap(BL_STROKE_CAP_BUTT);
     ctx->setStrokeEndCap(BL_STROKE_CAP_BUTT);
 
@@ -74,11 +86,15 @@ void Tunnel::OnRender(BLContext *ctx) {
     // Color set
     color->SetCount(arcs.size());
 
+    ctx->rotate(contextAngle, double(width) / 2.0 + x_origin, double(height) / 2.0 + y_origin);
+
     // Make iterate point to begining and incerement it one by one till it reaches the end of list.
     for (it = arcs.begin(); it != arcs.end(); it++) {
         ctx->setStrokeStyle(color->GetNextColor());
         ctx->strokeGeometry(BL_GEOMETRY_TYPE_ARC, &(*it));
     }
+
+
 
 }
 

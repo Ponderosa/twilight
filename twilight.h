@@ -31,6 +31,6 @@ const std::vector<double> SUBJECT_SHAPE_DEFAULT
     {126, 66, 45, 10, 63, 0.0, 0.0};
 
 const std::vector<std::string> SUBJECT_VELOCITY {"velocity_1", "velocity_2"};
-const std::vector<double> SUBJECT_VELOCITY_DEFAULT {64, 0.0};
+const std::vector<double> SUBJECT_VELOCITY_DEFAULT {64, 64};
 
 #endif //TWILIGHT_TWILIGHT_H
