@@ -7,7 +7,6 @@
 
 #include "observer/observer.h"
 #include "observer/dispatch.h"
-#include "observer/animator.h"
 #include "blend2d.h"
 
 class Color {
@@ -17,11 +16,11 @@ public:
     BLRgba32 GetNextColor();
     BLRgba32 HSVToRGB(double hue, double sat, double alpha);
 private:
-    Animator *window;
-    Animator *hue;
-    Animator *saturation;
-    Animator *repeat;
-    Animator *alpha;
+    Observer *window;
+    Observer *hue;
+    Observer *saturation;
+    Observer *repeat;
+    Observer *alpha;
     int current_color;
     int count;
 };

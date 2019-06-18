@@ -8,7 +8,6 @@
 #include <list>
 #include "beam.h"
 #include "observer/dispatch.h"
-#include "observer/animator.h"
 #include "color.h"
 
 class Tunnel: public Beam {
@@ -22,12 +21,12 @@ private:
 
     Color* color;
 
-    Animator* num_segment;
-    Animator* blanking;
-    Animator* radius;
-    Animator* thickness;
-    Animator* ellipse;
-    Animator* chiclet_march;
+    Observer* num_segment;
+    Observer * blanking;
+    Observer* radius;
+    Observer* thickness;
+    Observer* ellipse;
+    Observer* chiclet_march;
 
     double x_origin;
     double y_origin;

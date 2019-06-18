@@ -5,14 +5,13 @@
 #include "color.h"
 #include <cmath>
 #include <iostream>
-#include "observer/animator.h"
 
 Color::Color(int channel, Dispatch* dispatch) {
-    repeat = new Animator(dispatch->GetSubject("repeat_ch" + std::to_string(channel)), 1, 8);
-    saturation = new Animator(dispatch->GetSubject("saturation_ch" + std::to_string(channel)), 0, 127);
-    hue = new Animator(dispatch->GetSubject("hue_ch" + std::to_string(channel)), 0, 127);
-    window = new Animator(dispatch->GetSubject("window_ch" + std::to_string(channel)), 0, 127);
-    alpha = new Animator(dispatch->GetSubject("intensity_ch" + std::to_string(channel)), 0, 127);
+    repeat = new Observer(dispatch->GetSubject("repeat_ch" + std::to_string(channel)), 1, 8);
+    saturation = new Observer(dispatch->GetSubject("saturation_ch" + std::to_string(channel)), 0, 127);
+    hue = new Observer(dispatch->GetSubject("hue_ch" + std::to_string(channel)), 0, 127);
+    window = new Observer(dispatch->GetSubject("window_ch" + std::to_string(channel)), 0, 127);
+    alpha = new Observer(dispatch->GetSubject("intensity_ch" + std::to_string(channel)), 0, 127);
 
     count = 1;
     current_color = 0;
