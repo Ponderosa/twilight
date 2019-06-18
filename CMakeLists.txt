@@ -30,7 +30,7 @@ find_library(dl REQUIRED)
 find_library (RTMIDI rtmidi)
 
 # Your application target.
-add_executable(twilight main.cc beams/beam.cc beams/beam.h beams/tunnel.cc beams/tunnel.h graphics/sdl_application.cc graphics/sdl_application.h beams/fps.cc beams/fps.h observer/dispatch.cc observer/dispatch.h midi/midi_device.cc midi/midi_device.h midi/midi_apc_40.cc midi/midi_apc_40.h midi/midi_manager.cc midi/midi_manager.h observer/observer.cc observer/observer.h observer/subject.cc observer/subject.h twilight.h beams/color.cc beams/color.h observer/parameter.cc observer/parameter.h observer/animator.cc observer/animator.h gui/gui.cc gui/gui.h ../imgui/examples/imgui_impl_sdl.cpp ../imgui/examples/imgui_impl_opengl3.cpp ../imgui/imgui.cpp ../imgui/imgui_demo.cpp ../imgui/imgui_draw.cpp ../imgui/imgui_widgets.cpp ../imgui/examples/libs/gl3w/GL/gl3w.c)
+add_executable(twilight main.cc beams/beam.cc beams/beam.h beams/tunnel.cc beams/tunnel.h graphics/sdl_application.cc graphics/sdl_application.h beams/fps.cc beams/fps.h observer/dispatch.cc observer/dispatch.h midi/midi_device.cc midi/midi_device.h midi/midi_apc_40.cc midi/midi_apc_40.h midi/midi_manager.cc midi/midi_manager.h observer/observer.cc observer/observer.h observer/subject.cc observer/subject.h twilight.h beams/color.cc beams/color.h observer/animator.cc observer/animator.h gui/gui.cc gui/gui.h ../imgui/examples/imgui_impl_sdl.cpp ../imgui/examples/imgui_impl_opengl3.cpp ../imgui/imgui.cpp ../imgui/imgui_demo.cpp ../imgui/imgui_draw.cpp ../imgui/imgui_widgets.cpp ../imgui/examples/libs/gl3w/GL/gl3w.c)
 include_directories(. ../imgui/ ../imgui/examples/ ../imgui/examples/libs/gl3w/ ../imgui/examples/example_sdl_opengl3)
 
 # Add Blend2D dependency to your application. The dependency

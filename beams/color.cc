@@ -8,11 +8,11 @@
 #include "observer/animator.h"
 
 Color::Color(int channel, Dispatch* dispatch) {
-    repeat = new Animator(dispatch->GetParameter("repeat_ch" + std::to_string(channel)), 1, 8);
-    saturation = new Animator(dispatch->GetParameter("saturation_ch" + std::to_string(channel)), 0, 127);
-    hue = new Animator(dispatch->GetParameter("hue_ch" + std::to_string(channel)), 0, 127);
-    window = new Animator(dispatch->GetParameter("window_ch" + std::to_string(channel)), 0, 127);
-    alpha = new Animator(dispatch->GetParameter("intensity_ch" + std::to_string(channel)), 0, 127);
+    repeat = new Animator(dispatch->GetSubject("repeat_ch" + std::to_string(channel)), 1, 8);
+    saturation = new Animator(dispatch->GetSubject("saturation_ch" + std::to_string(channel)), 0, 127);
+    hue = new Animator(dispatch->GetSubject("hue_ch" + std::to_string(channel)), 0, 127);
+    window = new Animator(dispatch->GetSubject("window_ch" + std::to_string(channel)), 0, 127);
+    alpha = new Animator(dispatch->GetSubject("intensity_ch" + std::to_string(channel)), 0, 127);
 
     count = 1;
     current_color = 0;

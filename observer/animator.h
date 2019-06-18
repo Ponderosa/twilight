@@ -7,11 +7,11 @@
 
 
 #include "observer.h"
-#include "parameter.h"
+#include "subject.h"
 
 class Animator : public Observer{
 public:
-    Animator(Parameter *mod, double min = 0, double max = 0) : Observer(mod), min(min), max(max) {}
+    Animator(Subject *mod, double min = 0, double max = 0) : Observer(mod), min(min), max(max) {}
     double GetScaled();
     double GetMin();
     double GetMax();

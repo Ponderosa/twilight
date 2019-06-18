@@ -13,12 +13,12 @@ Tunnel::Tunnel(int width, int height, int channel, Dispatch* dispatch) {
 
     color = new Color(channel, dispatch);
 
-    num_segment = new Animator(dispatch->GetParameter("count_1_ch" + std::to_string(channel)), 0, 127);
-    blanking = new Animator(dispatch->GetParameter("count_2_ch" + std::to_string(channel)), 0, 127);
-    radius = new Animator(dispatch->GetParameter("size_1_ch" + std::to_string(channel)), 0, 127);
-    thickness = new Animator(dispatch->GetParameter("size_2_ch" + std::to_string(channel)), 0, 127);
-    ellipse = new Animator(dispatch->GetParameter("size_3_ch" + std::to_string(channel)), 0, 127);
-    chiclet_march = new Animator(dispatch->GetParameter("velocity_1_ch" + std::to_string(channel)), -1, 1);
+    num_segment = new Animator(dispatch->GetSubject("count_1_ch" + std::to_string(channel)), 0, 127);
+    blanking = new Animator(dispatch->GetSubject("count_2_ch" + std::to_string(channel)), 0, 127);
+    radius = new Animator(dispatch->GetSubject("size_1_ch" + std::to_string(channel)), 0, 127);
+    thickness = new Animator(dispatch->GetSubject("size_2_ch" + std::to_string(channel)), 0, 127);
+    ellipse = new Animator(dispatch->GetSubject("size_3_ch" + std::to_string(channel)), 0, 127);
+    chiclet_march = new Animator(dispatch->GetSubject("velocity_1_ch" + std::to_string(channel)), -1, 1);
 
     x_origin = 0.0;
     y_origin = 0.0;

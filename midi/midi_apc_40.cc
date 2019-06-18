@@ -67,59 +67,59 @@ void MidiAPC40::UpdateRingLed(Dispatch* dispatch) {
     unsigned char md;
 
     // DC 1
-    md = (unsigned char)dispatch->GetParameter("count_1_ch" + std::to_string(channel + 1))->GetMidi();
+    md = (unsigned char) dispatch->GetSubject("count_1_ch" + std::to_string(channel + 1))->GetMidi();
     buffer.push_back(md);
     // DC 2
-    md = (unsigned char)dispatch->GetParameter("count_2_ch" + std::to_string(channel + 1))->GetMidi();
+    md = (unsigned char) dispatch->GetSubject("count_2_ch" + std::to_string(channel + 1))->GetMidi();
     buffer.push_back(md);
     // DC 3
-    md = (unsigned char)dispatch->GetParameter("velocity_1_ch" + std::to_string(channel + 1))->GetMidi();
+    md = (unsigned char) dispatch->GetSubject("velocity_1_ch" + std::to_string(channel + 1))->GetMidi();
     //md = 0;
     buffer.push_back(md);
     // DC 4
-    //md = (unsigned char)dispatch->GetParameter("count_1_ch" + std::to_string(channel + 1))->GetMidi();
+    //md = (unsigned char)dispatch->GetSubject("count_1_ch" + std::to_string(channel + 1))->GetMidi();
     md = 0;
     buffer.push_back(md);
     // DC 5
-    md = (unsigned char)dispatch->GetParameter("size_1_ch" + std::to_string(channel + 1))->GetMidi();
+    md = (unsigned char) dispatch->GetSubject("size_1_ch" + std::to_string(channel + 1))->GetMidi();
     buffer.push_back(md);
     // DC 6
-    md = (unsigned char)dispatch->GetParameter("size_2_ch" + std::to_string(channel + 1))->GetMidi();
+    md = (unsigned char) dispatch->GetSubject("size_2_ch" + std::to_string(channel + 1))->GetMidi();
     buffer.push_back(md);
     // DC 7
-    md = (unsigned char)dispatch->GetParameter("size_3_ch" + std::to_string(channel + 1))->GetMidi();
+    md = (unsigned char) dispatch->GetSubject("size_3_ch" + std::to_string(channel + 1))->GetMidi();
     //md = 0;
     buffer.push_back(md);
     // DC 8
-    //md = (unsigned char)dispatch->GetParameter("count_1_ch" + std::to_string(channel + 1))->GetMidi();
+    //md = (unsigned char)dispatch->GetSubject("count_1_ch" + std::to_string(channel + 1))->GetMidi();
     md = 0;
     buffer.push_back(md);
     // TC 1
-    md = (unsigned char)dispatch->GetParameter("hue_ch" + std::to_string(channel + 1))->GetMidi();
+    md = (unsigned char) dispatch->GetSubject("hue_ch" + std::to_string(channel + 1))->GetMidi();
     buffer.push_back(md);
     // TC 2
-    md = (unsigned char)dispatch->GetParameter("window_ch" + std::to_string(channel + 1))->GetMidi();
+    md = (unsigned char) dispatch->GetSubject("window_ch" + std::to_string(channel + 1))->GetMidi();
     buffer.push_back(md);
     // TC 3
-    md = (unsigned char)dispatch->GetParameter("repeat_ch" + std::to_string(channel + 1))->GetMidi();
+    md = (unsigned char) dispatch->GetSubject("repeat_ch" + std::to_string(channel + 1))->GetMidi();
     buffer.push_back(md);
     // TC 4
-    md = (unsigned char)dispatch->GetParameter("saturation_ch" + std::to_string(channel + 1))->GetMidi();
+    md = (unsigned char) dispatch->GetSubject("saturation_ch" + std::to_string(channel + 1))->GetMidi();
     buffer.push_back(md);
     // TC 5
-    //md = (unsigned char)dispatch->GetParameter("count_1_ch" + std::to_string(channel + 1))->GetMidi();
+    //md = (unsigned char)dispatch->GetSubject("count_1_ch" + std::to_string(channel + 1))->GetMidi();
     md = 0;
     buffer.push_back(md);
     // TC 6
-    //md = (unsigned char)dispatch->GetParameter("count_1_ch" + std::to_string(channel + 1))->GetMidi();
+    //md = (unsigned char)dispatch->GetSubject("count_1_ch" + std::to_string(channel + 1))->GetMidi();
     md = 0;
     buffer.push_back(md);
     // TC 7
-    //md = (unsigned char)dispatch->GetParameter("count_1_ch" + std::to_string(channel + 1))->GetMidi();
+    //md = (unsigned char)dispatch->GetSubject("count_1_ch" + std::to_string(channel + 1))->GetMidi();
     md = 0;
     buffer.push_back(md);
     // TC 8
-    //md = (unsigned char)dispatch->GetParameter("count_1_ch" + std::to_string(channel + 1))->GetMidi();
+    //md = (unsigned char)dispatch->GetSubject("count_1_ch" + std::to_string(channel + 1))->GetMidi();
     md = 0;
     buffer.push_back(md);
 
@@ -232,5 +232,5 @@ void MidiAPC40::HandleMidiChannel(std::vector< unsigned char > *message, Dispatc
             return;
     }
 
-    dispatch->GetParameter(subject)->SetMidi(message->at(2));
+    dispatch->GetSubject(subject)->SetMidi(message->at(2));
 }
