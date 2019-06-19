@@ -24,7 +24,6 @@ bool SDLApplication::CreateWindow(int w, int h) {
     }
 
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    //renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
     if (!renderer) {
         printf("FAILED to create SDL_Renderer: %s\n", SDL_GetError());

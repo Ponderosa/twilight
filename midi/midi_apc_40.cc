@@ -40,9 +40,7 @@ void MidiAPC40::UpdateMode(Dispatch* dispatch, unsigned char mode) {
     /* Send Message */
     midi_out->sendMessage(&message);
 
-    /* Turn on Channel 1 Led */
-    //UpdateLed(NOTE_ON, 0x33, B_ON);
-
+    /* Selection Animation */
     for(int i = 7; i >= 0; --i) {
         SetChannel(dispatch, i);
         std::this_thread::sleep_for(std::chrono::milliseconds(100));

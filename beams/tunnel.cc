@@ -69,8 +69,6 @@ void Tunnel::OnFrame(uint32_t tick) {
             arcs.push_back(arc);
         }
     }
-
-
 }
 
 void Tunnel::OnRender(BLContext *ctx) {
@@ -93,8 +91,5 @@ void Tunnel::OnRender(BLContext *ctx) {
         ctx->setStrokeStyle(color->GetNextColor());
         ctx->strokeGeometry(BL_GEOMETRY_TYPE_ARC, &(*it));
     }
-
-
-
 }
 

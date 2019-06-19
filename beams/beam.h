@@ -7,6 +7,7 @@
 
 #include "blend2d.h"
 
+// This class is a placeholder until we add more beams.
 class Beam {
 public:
     virtual void OnFrame(uint32_t tick) = 0;

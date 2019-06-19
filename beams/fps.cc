@@ -25,7 +25,4 @@ void FPS::OnRender(BLContext *ctx) {
     ctx->fillUtf8Text(BLPoint(5, 20), font, buf);
 }
 
-//void FPS::SetFPS(double fps) {
-//    this->fps = fps;
-//}
 

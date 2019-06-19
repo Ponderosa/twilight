@@ -11,12 +11,8 @@
 #include "observer/dispatch.h"
 #include "gui/gui.h"
 
-//#define ARRAY_SIZE(X) uint32_t(sizeof(X) / sizeof(X[0]))
-
 
 int main(int argc, char *argv[]) {
-    // Dispatch Mutex
-    std::mutex dispatch_mutex;
 
     // Create Dispatch - Do before beam creation!
     Dispatch dispatch;

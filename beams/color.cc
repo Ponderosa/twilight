@@ -6,6 +6,7 @@
 #include <cmath>
 #include <iostream>
 
+/* Color Constructor */
 Color::Color(int channel, Dispatch* dispatch) {
     repeat = new Observer(dispatch->GetSubject("repeat_ch" + std::to_string(channel)), 1, 8);
     saturation = new Observer(dispatch->GetSubject("saturation_ch" + std::to_string(channel)), 0, 127);
@@ -38,13 +39,13 @@ BLRgba32 Color::GetNextColor() {
     }
     double sat = saturation->GetScaled() / 127.0;
     double a = alpha->GetScaled() / 127.0;
-    //std::cout << "alpha = " << a << std::endl;
     return HSVToRGB(angle, sat, a);
 }
 
 /* Given hue [0,360], sat [0,1], alpha [0,1]
  * Return BLRgba */
 BLRgba32 Color::HSVToRGB(double hue, double sat, double alpha) {
+    // Check for improper use of function
     if (0 > hue || 360 < hue) {
         throw;
     }
@@ -55,7 +56,7 @@ BLRgba32 Color::HSVToRGB(double hue, double sat, double alpha) {
         throw;
     }
 
-
+    // Set value to 1.0. Intensity will be controlled via alpha.
     double V = 1.0;
 
     double C = V * sat;
