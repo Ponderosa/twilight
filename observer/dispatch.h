@@ -13,7 +13,7 @@
 class Dispatch {
 public:
     Dispatch();
-    void CreateSubjects(std::vector<std::string> sub_list, std::vector<double>, int num_channels);
+    void CreateSubjects(std::vector<std::string> sub_list, std::vector<double>, int num_channels, int start_channel = 1);
     Subject* GetSubject(std::string name);
 private:
     std::map<std::string, Subject*> subject_map;

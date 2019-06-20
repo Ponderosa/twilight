@@ -117,6 +117,7 @@ void SDLApplication::OnFrame() {
     for(int i = 0; i < cnt_beams; ++i) {
         beams[i]->OnFrame(SDL_GetTicks());
     }
+    clocks->UpdateTick(SDL_GetTicks());
 }
 
 void SDLApplication::OnRender() {

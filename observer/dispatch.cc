@@ -16,13 +16,14 @@ Dispatch::Dispatch() {
     CreateSubjects(SUBJECT_COLOR, SUBJECT_COLOR_DEFAULT, NUMBER_OF_CHANNELS);
     CreateSubjects(SUBJECT_SHAPE, SUBJECT_SHAPE_DEFAULT, NUMBER_OF_CHANNELS);
     CreateSubjects(SUBJECT_VELOCITY, SUBJECT_VELOCITY_DEFAULT, NUMBER_OF_CHANNELS);
+    CreateSubjects(SUBJECT_CLOCK, SUBJECT_CLOCK_DEFAULT, NUMBER_OF_CLOCKS + 1, 0);
 }
 
 Subject* Dispatch::GetSubject(std::string name) {
     return subject_map.at(name);
 }
 
-void Dispatch::CreateSubjects(std::vector<std::string> sub_list, std::vector<double> defaults, int num_channels) {
+void Dispatch::CreateSubjects(std::vector<std::string> sub_list, std::vector<double> defaults, int num_channels, int start_channel) {
     // Create Subjects
     std::string subject_name;
     std::string subject_name_full;
@@ -43,7 +44,7 @@ void Dispatch::CreateSubjects(std::vector<std::string> sub_list, std::vector<dou
             sub = new Subject(def/127.0);
             subject_map[subject_name] = sub;
         } else {
-            for (int j = 1; j <= num_channels; ++j) {
+            for (int j = start_channel; j <= num_channels; ++j) {
                 subject_name_full = subject_name + "_ch" + std::to_string(j);
                 sub = new Subject(def/127.0);
                 subject_map[subject_name_full] = sub;

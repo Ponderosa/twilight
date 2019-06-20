@@ -8,10 +8,11 @@
 #include <blend2d.h>
 #include <SDL.h>
 #include "../beams/beam.h"
+#include "clock/clock_manager.h"
 
 class SDLApplication {
 public:
-    SDLApplication()
+    SDLApplication(ClockManager* clocks)
             : window(nullptr),
               renderer(nullptr),
               texture(nullptr),
@@ -19,7 +20,8 @@ public:
               quitting(false),
               exitCode(0),
               frameCounter(0),
-              frameTicks(0) {}
+              frameTicks(0),
+              clocks(clocks) {}
     ~SDLApplication() { DestroyWindow(); }
 
     bool CreateWindow(int w, int h);
@@ -50,6 +52,8 @@ private:
 
     Beam *beams[9];
     int cnt_beams;
+
+    ClockManager *clocks;
 };
 
 #endif //TWILIGHT_SDL_APPLICATION_H

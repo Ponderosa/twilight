@@ -3,11 +3,12 @@
 //
 
 #include <math.h>
+#include "twilight.h"
 #include "tunnel.h"
 #include "observer/dispatch.h"
 #include "observer/observer.h"
 
-Tunnel::Tunnel(int width, int height, int channel, Dispatch* dispatch) {
+Tunnel::Tunnel(int width, int height, int channel, Dispatch* dispatch, ClockManager *clocks) {
     this->width = width;
     this->height = height;
 
@@ -20,11 +21,15 @@ Tunnel::Tunnel(int width, int height, int channel, Dispatch* dispatch) {
     ellipse = new Observer(dispatch->GetSubject("size_3_ch" + std::to_string(channel)), -500, 500);
     chiclet_march = new Observer(dispatch->GetSubject("velocity_1_ch" + std::to_string(channel)), -1, 1);
     context_rotate = new Observer(dispatch->GetSubject("velocity_2_ch" + std::to_string(channel)), -1, 1);
+    chiclet_march_clock_master = new Observer(dispatch->GetSubject("velocity_1_clock_master_ch" + std::to_string(channel)), 0, NUMBER_OF_CLOCKS);
+    context_rotate_clock_master = new Observer(dispatch->GetSubject("velocity_2_clock_master_ch" + std::to_string(channel)), 0, NUMBER_OF_CLOCKS);
 
     x_origin = 0.0;
     y_origin = 0.0;
     originAngle = 0.0;
-    tick = 0;
+    //tick = 0;
+
+    this->clocks = clocks;
 }
 
 void Tunnel::OnFrame(uint32_t tick) {
@@ -34,17 +39,15 @@ void Tunnel::OnFrame(uint32_t tick) {
 
     // Handle ticks for smooth rendering
     if(abs(chiclet_march->GetScaled()) > 0.02) {
-        uint32_t tick_diff = tick - this->tick;
+        uint32_t tick_diff = clocks->GetTickDiff(chiclet_march_clock_master->GetScaled());
         originAngle += (double) tick_diff * 0.002 * chiclet_march->GetScaled();
     }
 
     // Handle ticks for smooth rendering
     if(abs(context_rotate->GetScaled()) > 0.02) {
-        uint32_t tick_diff = tick - this->tick;
+        uint32_t tick_diff = clocks->GetTickDiff(context_rotate_clock_master->GetScaled());
         contextAngle += (double) tick_diff * 0.002 * context_rotate->GetScaled();
     }
-
-    this->tick = tick;
 
     // Drop all arcs from last frame
     arcs.clear();

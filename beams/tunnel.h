@@ -9,10 +9,11 @@
 #include "beam.h"
 #include "observer/dispatch.h"
 #include "color.h"
+#include "clock/clock_manager.h"
 
 class Tunnel: public Beam {
 public:
-    Tunnel(int, int, int, Dispatch*);
+    Tunnel(int, int, int, Dispatch*, ClockManager*);
     void OnFrame(uint32_t tick) override;
     void OnRender(BLContext *ctx) override;
 private:
@@ -29,6 +30,8 @@ private:
     Observer* ellipse;
     Observer* chiclet_march;
     Observer* context_rotate;
+    Observer* chiclet_march_clock_master;
+    Observer* context_rotate_clock_master;
 
     double scaled_thickness;
     double x_origin;
@@ -36,7 +39,8 @@ private:
     double originAngle;
     double contextAngle;
 
-    uint32_t tick;
+    //uint32_t tick;
+    ClockManager *clocks;
 
     std::list<BLArc> arcs;
 };

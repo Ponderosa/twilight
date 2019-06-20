@@ -10,6 +10,7 @@
 #include "midi/midi_manager.h"
 #include "observer/dispatch.h"
 #include "gui/gui.h"
+#include "clock/clock_manager.h"
 
 
 int main(int argc, char *argv[]) {
@@ -17,21 +18,24 @@ int main(int argc, char *argv[]) {
     // Create Dispatch - Do before beam creation!
     Dispatch dispatch;
 
+    // Create Clock Manager
+    ClockManager clocks(&dispatch, NUMBER_OF_CLOCKS);
+
     // Midi Setup
     MidiManager midi(&dispatch);
 
     // Graphics Setup
-    SDLApplication sdl;
+    SDLApplication sdl(&clocks);
 
     // Beam Setup
-    Tunnel tunnel1(WIDTH,HEIGHT,1,&dispatch);
-    Tunnel tunnel2(WIDTH,HEIGHT,2,&dispatch);
-    Tunnel tunnel3(WIDTH,HEIGHT,3,&dispatch);
-    Tunnel tunnel4(WIDTH,HEIGHT,4,&dispatch);
-    Tunnel tunnel5(WIDTH,HEIGHT,5,&dispatch);
-    Tunnel tunnel6(WIDTH,HEIGHT,6,&dispatch);
-    Tunnel tunnel7(WIDTH,HEIGHT,7,&dispatch);
-    Tunnel tunnel8(WIDTH,HEIGHT,8,&dispatch);
+    Tunnel tunnel1(WIDTH,HEIGHT,1,&dispatch,&clocks);
+    Tunnel tunnel2(WIDTH,HEIGHT,2,&dispatch,&clocks);
+    Tunnel tunnel3(WIDTH,HEIGHT,3,&dispatch,&clocks);
+    Tunnel tunnel4(WIDTH,HEIGHT,4,&dispatch,&clocks);
+    Tunnel tunnel5(WIDTH,HEIGHT,5,&dispatch,&clocks);
+    Tunnel tunnel6(WIDTH,HEIGHT,6,&dispatch,&clocks);
+    Tunnel tunnel7(WIDTH,HEIGHT,7,&dispatch,&clocks);
+    Tunnel tunnel8(WIDTH,HEIGHT,8,&dispatch,&clocks);
     FPS fps(&sdl.fps);
 
     // Make window

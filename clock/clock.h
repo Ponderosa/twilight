@@ -15,12 +15,14 @@ public:
     Clock(Dispatch *dispatch, unsigned int channel, unsigned int master);
     void AddTicks(uint32_t ticks);
     uint32_t GetTicks();
+    uint32_t GetTickDiff();
     int GetChannel();
     int GetMasterChannel();
 private:
     Observer *multiplier;
     Observer *master;
     uint32_t ticks;
+    uint32_t ticks_diff;
     unsigned int channel;
 };
 
