@@ -24,7 +24,7 @@ private:
     Color* color;
 
     Observer* num_segment;
-    Observer * blanking;
+    Observer* blanking;
     Observer* radius;
     Observer* thickness;
     Observer* ellipse;
@@ -42,7 +42,7 @@ private:
     //uint32_t tick;
     ClockManager *clocks;
 
-    std::list<BLArc> arcs;
+    std::vector<BLArc> arcs;
 };
 
 

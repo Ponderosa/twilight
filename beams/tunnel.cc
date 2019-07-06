@@ -90,9 +90,9 @@ void Tunnel::OnRender(BLContext *ctx) {
     ctx->rotate(contextAngle, double(width) / 2.0 + x_origin, double(height) / 2.0 + y_origin);
 
     // Make iterate point to begining and incerement it one by one till it reaches the end of list.
-    for (it = arcs.begin(); it != arcs.end(); it++) {
+    for (auto& i: arcs) {
         ctx->setStrokeStyle(color->GetNextColor());
-        ctx->strokeGeometry(BL_GEOMETRY_TYPE_ARC, &(*it));
+        ctx->strokeGeometry(BL_GEOMETRY_TYPE_ARC, &i);
     }
 }
 
