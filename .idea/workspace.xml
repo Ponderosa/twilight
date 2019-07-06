@@ -13,15 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df8b80b8-724e-4ca9-b813-2c4373984bb8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clock/clock.cc" beforeDir="false" afterPath="$PROJECT_DIR$/clock/clock.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clock/clock_manager.cc" beforeDir="false" afterPath="$PROJECT_DIR$/clock/clock_manager.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphics/sdl_application.cc" beforeDir="false" afterPath="$PROJECT_DIR$/graphics/sdl_application.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphics/sdl_application.h" beforeDir="false" afterPath="$PROJECT_DIR$/graphics/sdl_application.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/gui.cc" beforeDir="false" afterPath="$PROJECT_DIR$/gui/gui.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/twilight.h" beforeDir="false" afterPath="$PROJECT_DIR$/twilight.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,8 +38,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/graphics/sdl_application.cc">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
+                <state relative-caret-position="260">
+                  <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
                   <folding>
                     <element signature="e#43#60#0" expanded="true" />
                   </folding>
@@ -62,8 +54,11 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/graphics/sdl_application.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+                <state relative-caret-position="140">
+                  <caret line="7" selection-start-line="7" selection-end-line="11" />
+                  <folding>
+                    <element signature="e#113#133#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -169,8 +164,8 @@
         <option value="$PROJECT_DIR$/clock/clock.cc" />
         <option value="$PROJECT_DIR$/clock/clock_manager.cc" />
         <option value="$PROJECT_DIR$/gui/gui.cc" />
-        <option value="$PROJECT_DIR$/graphics/sdl_application.cc" />
         <option value="$PROJECT_DIR$/graphics/sdl_application.h" />
+        <option value="$PROJECT_DIR$/graphics/sdl_application.cc" />
       </list>
     </option>
   </component>
@@ -294,12 +289,12 @@
       <workItem from="1560972108091" duration="15990000" />
       <workItem from="1561388722918" duration="75000" />
       <workItem from="1562350668819" duration="624000" />
-      <workItem from="1562370461888" duration="771000" />
+      <workItem from="1562370461888" duration="1019000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178114000" />
+    <option name="totallyTimeSpent" value="178362000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -314,18 +309,18 @@
     <frame x="0" y="-1" width="2048" height="1112" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13403614" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13403614" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.3298722" />
       <window_info anchor="bottom" id="CMake" order="0" sideWeight="0.49760383" weight="0.32921812" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.32921812" />
-      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.45527157" weight="0.3251029" />
+      <window_info anchor="bottom" id="Messages" order="3" sideWeight="0.45527157" weight="0.32502708" />
       <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.49880192" weight="0.32921812" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5403355" side_tool="true" weight="0.33004114" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.20314881" />
-      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.45966452" weight="0.44773662" />
+      <window_info active="true" anchor="bottom" id="Run" order="8" sideWeight="0.45966452" visible="true" weight="0.26760563" />
       <window_info anchor="bottom" id="Debug" order="9" sideWeight="0.49840257" weight="0.39867952" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -667,15 +662,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/graphics/sdl_application.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        <state relative-caret-position="140">
+          <caret line="7" selection-start-line="7" selection-end-line="11" />
+          <folding>
+            <element signature="e#113#133#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/graphics/sdl_application.cc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
+        <state relative-caret-position="260">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="e#43#60#0" expanded="true" />
           </folding>

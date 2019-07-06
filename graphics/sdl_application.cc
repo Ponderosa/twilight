@@ -2,12 +2,14 @@
 // Created by ponderosa on 6/3/19.
 //
 
-
 #include <math.h>
+#include <blend2d.h>
+#include <SDL.h>
 
 #include "twilight.h"
+#include "../beams/beam.h"
+#include "clock/clock_manager.h"
 #include "sdl_application.h"
-
 
 bool SDLApplication::CreateWindow(int w, int h) noexcept {
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_TIMER) != 0) {
@@ -15,7 +17,7 @@ bool SDLApplication::CreateWindow(int w, int h) noexcept {
         return false;
     }
 
-    window = SDL_CreateWindow("SDL Window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, w, h, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Twilight", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, w, h, SDL_WINDOW_SHOWN);
     if (!window)
         return false;
 
