@@ -24,18 +24,18 @@ public:
               clocks(clocks) {}
     ~SDLApplication() { DestroyWindow(); }
 
-    bool CreateWindow(int w, int h);
-    void DestroyWindow();
-    void OnEvent(SDL_Event &event);
-    bool CreateSurface(int w, int h);
-    void DestroySurface();
-    int Run();
-    void OnFrame();
-    void OnRender();
-    void Blit();
-    void UpdateFrameCounter();
-    double FPS();
-    void AddBeam(Beam*);
+    bool CreateWindow(int w, int h) noexcept;
+    void DestroyWindow() noexcept;
+    void OnEvent(SDL_Event &event) noexcept;
+    bool CreateSurface(int w, int h) noexcept;
+    void DestroySurface() noexcept;
+    int Run() noexcept;
+    void OnFrame() noexcept;
+    void OnRender() noexcept;
+    void Blit() noexcept;
+    void UpdateFrameCounter() noexcept;
+    double FPS() noexcept;
+    void AddBeam(Beam*) noexcept;
     double fps;
 
 private:
@@ -48,7 +48,6 @@ private:
     int exitCode;
     int frameCounter;
     int frameTicks;
-    //double fps;
 
     Beam *beams[9];
     int cnt_beams;

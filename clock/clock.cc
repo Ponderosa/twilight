@@ -11,7 +11,7 @@ Clock::Clock(Dispatch *dispatch, unsigned int channel, unsigned int master_chann
         printf("Error - Clock inversion detected");
     }
 
-    multiplier = new Observer(dispatch->GetSubject("clock_speed_ch" + std::to_string(channel)), 0, 2);
+    multiplier = new Observer(dispatch->GetSubject("clock_speed_ch" + std::to_string(channel)), 0, CLOCK_MULTIPLIER_TOP);
     master = new Observer(dispatch->GetSubject("clock_master_ch" + std::to_string(channel)), 0,  NUMBER_OF_CLOCKS);
 
     this->channel = channel;

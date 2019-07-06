@@ -11,6 +11,7 @@
 #include "imgui.h"
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_opengl3.h"
+#include "twilight.h"
 #include <stdio.h>
 #include <SDL.h>
 
@@ -179,8 +180,8 @@ void Gui::operator()() {
 
         /* Twilight - Intensity */
         ImGui::SetNextWindowPos(ImVec2(20, 200), ImGuiCond_FirstUseEver);
-        ImGui::Begin("Twilight");
-        ImGui::Text("Twilight Test");
+        ImGui::Begin("Mixer");
+        //ImGui::Text("Twilight Test");
 
         // Faders - Channel Intensity
         float intensity;
@@ -189,7 +190,7 @@ void Gui::operator()() {
             if (i > 1) ImGui::SameLine();
             ImGui::PushID(i);
             ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, 40);
-            intensity = dispatch->GetSubject("intensity_ch" + std::to_string(i))->GetVal();
+            intensity = (float)dispatch->GetSubject("intensity_ch" + std::to_string(i))->GetVal();
             std::string label = "Ch" + std::to_string(i) + "\n%.2f\n";
             ImGui::VSliderFloat("##v", ImVec2(40,160), &intensity, 0.0f, 1.0f, label.c_str());
             dispatch->GetSubject("intensity_ch" + std::to_string(i))->SetVal(intensity);
@@ -202,9 +203,9 @@ void Gui::operator()() {
         /* Twilight -  */
         ImGui::SetNextWindowPos(ImVec2(20, 200), ImGuiCond_FirstUseEver);
         ImGui::Begin("Clocks");
-        ImGui::Text("~~Clocks~~");
+        //ImGui::Text("~~Clocks~~");
 
-        // Faders - Channel Intensity
+        // Clocks
         float channel;
         float multiplier;
         for (int i = 0; i <= 8; i++)
@@ -213,16 +214,53 @@ void Gui::operator()() {
             ImGui::PushID(i);
             // Multiplier
             ImGui::PushStyleVar(ImGuiStyleVar_GrabMinSize, 40);
-            multiplier = dispatch->GetSubject("clock_speed_ch" + std::to_string(i))->GetVal() * 2.0;
-            std::string label = "Clk" + std::to_string(i) + "\n%.2f\n";
-            ImGui::VSliderFloat("##v", ImVec2(40,160), &multiplier, 0.0f, 2.0f, label.c_str());
-            dispatch->GetSubject("clock_speed_ch" + std::to_string(i))->SetVal(multiplier / 2.0);
+            multiplier = (float)dispatch->GetSubject("clock_speed_ch" + std::to_string(i))->GetVal() * CLOCK_MULTIPLIER_TOP;
+            std::string label;
+            if (i == 0) {
+                label = "MSTR\n%.2f\n";
+            } else {
+                label = "Clk" + std::to_string(i) + "\n%.2f\n";
+            }
+            ImGui::VSliderFloat("##v", ImVec2(40,160), &multiplier, 0.0f, (float)CLOCK_MULTIPLIER_TOP, label.c_str());
+            dispatch->GetSubject("clock_speed_ch" + std::to_string(i))->SetVal(multiplier / CLOCK_MULTIPLIER_TOP);
             ImGui::PopStyleVar();
-            // Master
 
 
             ImGui::PopID();
         }
+
+        // Clocks
+        ImGui::PushItemWidth(40);
+        for (int i = 0; i <= 8; i++)
+        {
+            ImGui::PushID(i);
+            if (i > 0) ImGui::SameLine();
+            const char* items[] = { "M", "1", "2", "3", "4", "5", "6", "7", "8" };
+            int item_current = (int)(dispatch->GetSubject("clock_master_ch" + std::to_string(i))->GetVal() * 8.0);
+            ImGui::Combo("", &item_current, items, 9);
+            dispatch->GetSubject("clock_master_ch" + std::to_string(i))->SetVal(((double)item_current) / 8.0);
+            ImGui::PopID();
+        }
+        ImGui::PopItemWidth();
+
+
+        // Clocks
+        ImGui::PushItemWidth(40);
+        for (int i = 0; i <= 8; i++)
+        {
+            ImGui::PushID(i);
+            if (i > 0) ImGui::SameLine();
+            const char* items[] = { "M", "1", "2", "3", "4", "5", "6", "7", "8" };
+            int item_current = (int)(dispatch->GetSubject("clock_master_ch" + std::to_string(i))->GetVal() * 8.0);
+            ImGui::Combo("", &item_current, items, 9);
+            dispatch->GetSubject("clock_master_ch" + std::to_string(i))->SetVal(((double)item_current) / 8.0);
+            ImGui::PopID();
+        }
+        ImGui::PopItemWidth();
+
+
+
+
 
         ImGui::End();
 

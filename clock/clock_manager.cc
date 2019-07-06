@@ -14,8 +14,11 @@ void ClockManager::UpdateTick(uint32_t tick) {
     uint32_t tick_diff = tick - previous_tick;
     previous_tick = tick;
 
-    for (auto &i : clocks) {
-        i.AddTicks(tick_diff);
+    // Set master
+    clocks.at(0).AddTicks(tick_diff);
+
+    for (int i = 1; i < clocks.size(); ++i) {
+        clocks.at(i).AddTicks(clocks.at(clocks.at(i).GetMasterChannel()).GetTickDiff());
     }
 }
 

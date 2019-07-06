@@ -9,7 +9,7 @@
 #include "sdl_application.h"
 
 
-bool SDLApplication::CreateWindow(int w, int h) {
+bool SDLApplication::CreateWindow(int w, int h) noexcept {
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS | SDL_INIT_TIMER) != 0) {
         printf("Failed to initialize SDL: %s", SDL_GetError());
         return false;
@@ -42,7 +42,7 @@ bool SDLApplication::CreateWindow(int w, int h) {
     return true;
 }
 
-void SDLApplication::DestroyWindow() {
+void SDLApplication::DestroyWindow() noexcept{
     DestroySurface();
 
     if (renderer) {
@@ -56,7 +56,7 @@ void SDLApplication::DestroyWindow() {
     }
 }
 
-void SDLApplication::OnEvent(SDL_Event &event) {
+void SDLApplication::OnEvent(SDL_Event &event) noexcept{
     if (event.type == SDL_QUIT) {
         quitting = true;
     }
@@ -69,7 +69,7 @@ void SDLApplication::OnEvent(SDL_Event &event) {
 }
 
 
-bool SDLApplication::CreateSurface(int w, int h) {
+bool SDLApplication::CreateSurface(int w, int h) noexcept{
     DestroySurface();
 
     texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, w, h);
@@ -83,7 +83,7 @@ bool SDLApplication::CreateSurface(int w, int h) {
     return true;
 }
 
-void SDLApplication::DestroySurface() {
+void SDLApplication::DestroySurface() noexcept{
     if (texture) {
         SDL_DestroyTexture(texture);
         texture = nullptr;
@@ -92,7 +92,7 @@ void SDLApplication::DestroySurface() {
     blSurface.reset();
 }
 
-int SDLApplication::Run() {
+int SDLApplication::Run() noexcept{
     SDL_Event event;
 
     for (;;) {
@@ -111,16 +111,14 @@ int SDLApplication::Run() {
     return exitCode;
 }
 
-
-
-void SDLApplication::OnFrame() {
+void SDLApplication::OnFrame() noexcept{
     for(int i = 0; i < cnt_beams; ++i) {
         beams[i]->OnFrame(SDL_GetTicks());
     }
     clocks->UpdateTick(SDL_GetTicks());
 }
 
-void SDLApplication::OnRender() {
+void SDLApplication::OnRender() noexcept{
 
     BLContext ctx(blSurface);
 
@@ -134,7 +132,7 @@ void SDLApplication::OnRender() {
 
 }
 
-void SDLApplication::Blit() {
+void SDLApplication::Blit() noexcept{
     BLImageData data;
     blSurface.getData(&data);
 
@@ -143,7 +141,7 @@ void SDLApplication::Blit() {
     SDL_RenderPresent(renderer);
 }
 
-void SDLApplication::UpdateFrameCounter() {
+void SDLApplication::UpdateFrameCounter() noexcept{
     uint32_t ticks = SDL_GetTicks();
     if (++frameCounter >= 100) {
         fps = (1000.0 / double(ticks - frameTicks)) * double(frameCounter);
@@ -154,11 +152,11 @@ void SDLApplication::UpdateFrameCounter() {
     }
 }
 
-double SDLApplication::FPS() {
+double SDLApplication::FPS() noexcept{
     return fps;
 }
 
-void SDLApplication::AddBeam(Beam *beam) {
+void SDLApplication::AddBeam(Beam *beam) noexcept{
     beams[cnt_beams] = beam;
     cnt_beams++;
 }

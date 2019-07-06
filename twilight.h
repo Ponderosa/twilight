@@ -18,6 +18,7 @@ const bool SET_FULLSCREEN = false;
 
 const int NUMBER_OF_CHANNELS = 8;
 const int NUMBER_OF_CLOCKS = 8;
+const int CLOCK_MULTIPLIER_TOP = 5;
 
 
 const std::vector<std::string> SUBJECT_MASTER {"intensity", "mask", "bump", "mute"};
@@ -35,6 +36,6 @@ const std::vector<std::string> SUBJECT_VELOCITY {"velocity_1", "velocity_2", "ve
 const std::vector<double> SUBJECT_VELOCITY_DEFAULT {64, 64};
 
 const std::vector<std::string> SUBJECT_CLOCK {"clock_speed", "clock_master"};
-const std::vector<double> SUBJECT_CLOCK_DEFAULT {64, 0};
+const std::vector<double> SUBJECT_CLOCK_DEFAULT {127/CLOCK_MULTIPLIER_TOP, 0};
 
 #endif //TWILIGHT_TWILIGHT_H
